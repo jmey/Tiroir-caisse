@@ -32,7 +32,8 @@ namespace TiroirCaisse.Utils
             }
          
             SQLiteDataReader dataReader = sqliteAccess.ExecuteCommandWReturn(query);
-            while (dataReader.Read())
+
+            while (dataReader != null && dataReader.Read())
             {
                 TimeSpan ts;
                 if (dataReader["date_arrivee"].ToString() != "")

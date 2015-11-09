@@ -39,7 +39,7 @@ namespace TiroirCaisse.ExternAccess
 
         private SQLiteAccess()
         {
-            Connection = new SQLiteConnection("Data Source=D:\\TiroirCaisse\\TiroirCaisse\\DataBase\\TiroirCaisseDBTest.db; Version=3; Legacy Format=True;");
+            Connection = new SQLiteConnection("Data Source=D:\\Tiroir-caisse\\TiroirCaisse\\DataBase\\TiroirCaisseDBTest.db; Version=3; Legacy Format=True;");
             Connected = false;
         }
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\TiroirCaisse\TiroirCaisse\obj\Debug\
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\
 TiroirCaisse
 none
 false
 DEBUG;TRACE
-D:\TiroirCaisse\TiroirCaisse\App.xaml
-11151548125
+D:\Tiroir-caisse\TiroirCaisse\App.xaml
+4133384008
 
-15-729916139
-18236169036
-MainWindow.xaml;
+191545501423
+20-1979505602
+MainWindow.xaml;src\Views\Clients\AjouterClientPage.xaml;src\Views\Clients\MainPageClient..xaml;src\Views\Clients\VisualisationClientPage.xaml;
 
 False
 

@@ -1,12 +1,45 @@
-﻿<Window x:Class="TiroirCaisse.MainWindow"
+﻿<Controls:MetroWindow x:Class="TiroirCaisse.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TiroirCaisse"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="Tiroir caisse" Height="1024" Width="1280">
+    
     <Grid>
         
-    </Grid>
-</Window>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Controls:MetroAnimatedSingleRowTabControl x:Name="MainTabControl">
+            <TabItem Header="Ventes" Name="Ventes"  >
+                <Label Content="123444" />
+            </TabItem>
+            <TabItem Header="Clients" Name="Clients">
+                <Frame Name="ContentControlClients" />
+            </TabItem>
+            <TabItem Header="Prestations" Name="Prestations" >
+                <Frame Name="ContentControlPrestations" />
+            </TabItem>
+            <TabItem Header="Produits" Name="Produits" >
+                <Frame Name="ContentControlProduits" />
+            </TabItem>
+            <TabItem Header="Vendeurs" Name="Vendeurs" >
+                <Frame Name="ContentControlVendeurs" />
+            </TabItem>
+            <TabItem Header="Autres" Name="Autres" >
+                <Frame Name="ContentControlAutres" />
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+       
+
+     </Grid>
+
+</Controls:MetroWindow>

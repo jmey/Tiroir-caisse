@@ -13,20 +13,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using TiroirCaisse.src.Views.Clients;
 
 namespace TiroirCaisse
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
-        public MainWindow()
+
+        public MainWindow() 
         {
+           
             InitializeComponent();
-            SQLiteConnection m_dbConnection =
-new SQLiteConnection("Data Source=D:\\TiroirCaisse\\TiroirCaisse\\DataBaseTiroirCaisse.db;Version=3;");
-            m_dbConnection.Open();
+            ContentControlClients.Content = new MainPageClient();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+/*            TabControl currentControl = sender as TabControl;
+            TabItem currentTab = currentControl.SelectedItem as TabItem;
+            switch(currentTab.Name)
+            {
+                case "Clients":
+                    MainContent.Content = new MainWindowClient() as Page;
+                    break;
+                default:
+                   // MainContent.Content = null;
+                    break;
+            }*/
         }
     }
 }
