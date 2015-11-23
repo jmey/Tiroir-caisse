@@ -1,0 +1,52 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Produit.AjouterProduitPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Produit"
+      mc:Ignorable="d" 
+      d:DesignHeight="913" d:DesignWidth="987"
+      Title="AjouterProduitPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,50,0,0">
+            <DockPanel LastChildFill="False" >
+                <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxNom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label2" Content="Type" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxType" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label3" Content="Nombre en stock" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxNombreStock" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label4" Content="Seuil d'alerte" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxSeuilAlerte" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label5" Content="Fournisseur" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxFournisseur" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label6" Content="Référence Fournisseur" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxReferenceFournisseur" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label7" Content="Prix" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxPrix" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label8" Content="Prix Fournisseur" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxPrixFournisseur" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label9" Content="Catégorie" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <ComboBox x:Name="ComboBoxCategorie" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <Button Content="Valider" Margin="0,10,0,0" FontSize="20" Click="Button_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

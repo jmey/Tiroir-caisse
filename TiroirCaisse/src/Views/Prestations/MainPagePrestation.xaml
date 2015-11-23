@@ -1,0 +1,29 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Prestations.MainPagePrestation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Prestations"
+      mc:Ignorable="d" 
+      d:DesignHeight="914.52666" d:DesignWidth="1280"
+      Title="MainPagePrestation">
+
+    <Grid>
+
+        <TabControl TabStripPlacement="Left"  >
+            <TabItem Header="Ajouter une prestation" >
+                <Frame Name="ContentControlAjouterProduit" />
+            </TabItem>
+            <TabItem Header="Visualisation des prestations" >
+                <Frame Name="ContentControlVisualisationProduits" />
+            </TabItem>
+            <TabItem Header="Ajouter une catégorie de prestations" >
+                <Frame Name="ContentControlAjouterCategorieProduit" />
+            </TabItem>
+            <TabItem Header="Visualisation des catégories de prestations" >
+                <Frame Name="ContentControlVisualisationCategorieProduit" />
+            </TabItem>
+        </TabControl>
+        <Frame Name="FrameContent" Grid.ColumnSpan="2"/>
+    </Grid>
+</Page>

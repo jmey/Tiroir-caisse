@@ -10,21 +10,25 @@ namespace TiroirCaisse.src.Controllers
 {
     public class ClientController
     {
+        private ObjectBddTransition transition { get; set; }
         public ClientController()
         {
-
+            transition = new ObjectBddTransition();
         }
 
         public List<Client> getAllClients()
         {
-            ObjectBddTransition transition = new ObjectBddTransition();
             List<Client> resultat = transition.getAllClientsBy("");
             return resultat;
         }
         public int ajouterClient(Client client)
         {
-            ObjectBddTransition transition = new ObjectBddTransition();
             int res = transition.addClient(client);
+            return res;
+        }
+        public int supprimerClient(Client client)
+        {
+            int res = transition.deleteClientBy("id=" + client.Id);
             return res;
         }
 

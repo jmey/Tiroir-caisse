@@ -1,0 +1,28 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Produit.VisualisationProduitPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Produit"
+      mc:Ignorable="d" 
+      d:DesignHeight="913" d:DesignWidth="987"
+      Title="VisualisationProduitPage">
+
+    <Grid>
+
+        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listProduit, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.5*" />
+                <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
+                <DataGridTextColumn x:Name="cType" Binding="{Binding Type}" Header="Type" Width="*"  />
+                <DataGridTextColumn x:Name="cNombreStock" Binding="{Binding NombreStock}" Header="Stock" Width="0.5*" />
+                <DataGridTextColumn x:Name="cSeuilAlerte" Binding="{Binding SeuilAlerte}" Header="Seuil d'alerte" Width="0.5*" />
+                <DataGridTextColumn x:Name="cFournisseur" Binding="{Binding Fournisseur}" Header="Fournisseur" Width="*" />
+                <DataGridTextColumn x:Name="cReferenceFournisseur" Binding="{Binding ReferenceFournisseur}" Header="Réf. Fournisseur" Width="*" />
+                <DataGridTextColumn x:Name="cPrix" Binding="{Binding Prix}" Header="Prix" Width="0.5*" />
+                <DataGridTextColumn x:Name="cPrixFournisseur" Binding="{Binding PrixFournisseur}" Header="Prix fournisseurr" Width="0.5*" />
+                <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie}" Header="Catégorie" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

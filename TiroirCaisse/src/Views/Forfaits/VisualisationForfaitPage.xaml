@@ -1,0 +1,21 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Forfaits.VisualisationForfaitPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Forfaits"
+      mc:Ignorable="d" 
+      d:DesignHeight="914.52666" d:DesignWidth="1280"
+      Title="VisualisationForfaitPage" Loaded="Page_Loaded">
+
+    <Grid>
+
+        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listForfait, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
+                <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
+                <DataGridTextColumn x:Name="cPrix" Binding="{Binding Prix}" Header="Prix TTC" Width="*"  />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TiroirCaisse.Entities;
 using TiroirCaisse.src.Controllers;
+using TiroirCaisse.src.Utils;
 
 namespace TiroirCaisse.src.Views.Clients
 {
@@ -34,9 +36,18 @@ namespace TiroirCaisse.src.Views.Clients
         {
             DateTime? temp_dateArrivee = datePickerDateArrivee.SelectedDate;
             DateTime dateArrivee;
-            dateArrivee = temp_dateArrivee.Value;
+            Client res = null;
+            try
+            {
+                dateArrivee = temp_dateArrivee.Value;
+                return new Client(textBoxNom.Text, textBoxPrenom.Text, dateArrivee, textBoxTéléphoneFixe.Text, textBoxTelephonePortable.Text);
+            }
+            catch
+            {
+            }
+            return res;
 
-            return new Client(textBoxNom.Text, textBoxPrenom.Text, dateArrivee, textBoxTéléphoneFixe.Text, textBoxTelephonePortable.Text);
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -45,7 +56,20 @@ namespace TiroirCaisse.src.Views.Clients
             if (clientToAdd != null)
             {
                 int res = clientController.ajouterClient(clientToAdd);
+                if(res ==1)
+                {
+                    MessageBox.Show("L'utilisateur a été rajouté");
+                }
+                else
+                {
+                    MessageBox.Show("Problème interne, l'utilisateur n'a pas été ajouté");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez vérifier que les informations sont correctes (Bon format de date par exemple)");
             }
         }
+
     }
 }

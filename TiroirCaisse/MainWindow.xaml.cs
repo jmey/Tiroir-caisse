@@ -15,6 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using TiroirCaisse.src.Views.Clients;
+using TiroirCaisse.src.Views.Prestations;
+using TiroirCaisse.src.Views.Forfaits;
+using TiroirCaisse.src.Views.Vendeurs;
 
 namespace TiroirCaisse
 {
@@ -29,6 +32,9 @@ namespace TiroirCaisse
            
             InitializeComponent();
             ContentControlClients.Content = new MainPageClient();
+            ContentControlPrestations.Content = new MainPagePrestation();
+            ContentControlForfaits.Content = new MainPageForfait();
+            ContentControlVendeurs.Content = new MainPageVendeur();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)

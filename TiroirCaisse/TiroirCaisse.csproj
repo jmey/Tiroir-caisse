@@ -88,6 +88,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="src\Controllers\ClientController.cs" />
+    <Compile Include="src\Controllers\ForfaitController.cs" />
+    <Compile Include="src\Controllers\PrestationController.cs" />
+    <Compile Include="src\Controllers\ProduitController.cs" />
+    <Compile Include="src\Controllers\VendeurController.cs" />
+    <Compile Include="src\Controllers\VenteController.cs" />
     <Compile Include="src\Entities\CategoriePrestation.cs" />
     <Compile Include="src\Entities\CategorieProduit.cs" />
     <Compile Include="src\Entities\Client.cs" />
@@ -97,6 +102,8 @@
     <Compile Include="src\Entities\Vendeur.cs" />
     <Compile Include="src\Entities\Vente.cs" />
     <Compile Include="src\ExternAccess\SQLiteAccess.cs" />
+    <Compile Include="src\Utils\Error.cs" />
+    <Compile Include="src\Utils\ErrorManager.cs" />
     <Compile Include="src\Utils\ObjectBddTransition.cs" />
     <Compile Include="src\Views\Clients\AjouterClientPage.xaml.cs">
       <DependentUpon>AjouterClientPage.xaml</DependentUpon>
@@ -106,6 +113,63 @@
     </Compile>
     <Compile Include="src\Views\Clients\VisualisationClientPage.xaml.cs">
       <DependentUpon>VisualisationClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Forfaits\AjouterForfaitPage.xaml.cs">
+      <DependentUpon>AjouterForfaitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Forfaits\MainPageForfait.xaml.cs">
+      <DependentUpon>MainPageForfait.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Forfaits\VisualisationForfaitPage.xaml.cs">
+      <DependentUpon>VisualisationForfaitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Prestations\AjouterCategoriePrestationPage.xaml.cs">
+      <DependentUpon>AjouterCategoriePrestationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Prestations\AjouterPrestationPage.xaml.cs">
+      <DependentUpon>AjouterPrestationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Prestations\MainPagePrestation.xaml.cs">
+      <DependentUpon>MainPagePrestation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Prestations\VisualisationCategoriePrestationPage.xaml.cs">
+      <DependentUpon>VisualisationCategoriePrestationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Prestations\VisualisationPrestationPage.xaml.cs">
+      <DependentUpon>VisualisationPrestationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Produits\AjouterCategorieProduitPage.xaml.cs">
+      <DependentUpon>AjouterCategorieProduitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Produits\AjouterProduitPage.xaml.cs">
+      <DependentUpon>AjouterProduitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Produits\MainPageProduit.xaml.cs">
+      <DependentUpon>MainPageProduit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Produits\VisualisationCategorieProduitPage.xaml.cs">
+      <DependentUpon>VisualisationCategorieProduitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Produits\VisualisationProduitPage.xaml.cs">
+      <DependentUpon>VisualisationProduitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Vendeurs\AjouterVendeurPage.xaml.cs">
+      <DependentUpon>AjouterVendeurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Vendeurs\MainPageVendeur.xaml.cs">
+      <DependentUpon>MainPageVendeur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Vendeurs\VisualisationVendeurPage.xaml.cs">
+      <DependentUpon>VisualisationVendeurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Ventes\AjouterVentePage.xaml.cs">
+      <DependentUpon>AjouterVentePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Ventes\MainPageVente.xaml.cs">
+      <DependentUpon>MainPageVente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Ventes\VisualisationVentePage.xaml.cs">
+      <DependentUpon>VisualisationVentePage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +192,82 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\Views\Clients\VisualisationClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Forfaits\AjouterForfaitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Forfaits\MainPageForfait.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Forfaits\VisualisationForfaitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Prestations\AjouterCategoriePrestationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Prestations\AjouterPrestationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Prestations\MainPagePrestation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Prestations\VisualisationCategoriePrestationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Prestations\VisualisationPrestationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Produits\AjouterCategorieProduitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Produits\AjouterProduitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Produits\MainPageProduit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Produits\VisualisationCategorieProduitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Produits\VisualisationProduitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Vendeurs\AjouterVendeurPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Vendeurs\MainPageVendeur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Vendeurs\VisualisationVendeurPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Ventes\AjouterVentePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Ventes\MainPageVente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Ventes\VisualisationVentePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,7 +301,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Managers\" />
+    <Folder Include="Managers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.98.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net46\System.Data.SQLite.Core.targets')" />

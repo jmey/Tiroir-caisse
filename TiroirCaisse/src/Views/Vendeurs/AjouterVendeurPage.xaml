@@ -1,0 +1,27 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Vendeurs.AjouterVendeurPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Vendeurs"
+      mc:Ignorable="d" 
+      d:DesignHeight="913" d:DesignWidth="987"
+      Title="AjouterVendeurPage">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,50,0,0">
+            <DockPanel LastChildFill="False" >
+                <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxNom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label2" Content="Prénom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxPrenom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label3" Content="Type de contrat" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxTypeContrat" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <Button Content="Valider" Margin="0,10,0,0" FontSize="20" Click="Button_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

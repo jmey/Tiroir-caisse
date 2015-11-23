@@ -1,0 +1,21 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Prestations.VisualisationCategoriePrestationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Prestations"
+      mc:Ignorable="d" 
+      d:DesignHeight="913" d:DesignWidth="987"
+      Title="VisualisationCategoriePrestationPage">
+
+    <Grid>
+
+        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listCategorieProduit, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
+                <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

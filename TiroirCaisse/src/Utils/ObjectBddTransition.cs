@@ -52,21 +52,12 @@ namespace TiroirCaisse.Utils
         
         public int deleteClientBy(string whereClause)
         {
-            int resultat;
-            int resfonction = 1;
+            int resfonction = 0;
             string query = "DELETE FROM client";
             if (whereClause != null && whereClause != "")
             {
                 query += " WHERE " + whereClause;
-                resultat = sqliteAccess.ExecuteComandWOReturn(query);
-                if(resultat == 0)
-                {
-                    resfonction = 0; 
-                }
-                else
-                {
-                    resfonction = 2;
-                }
+                resfonction = sqliteAccess.ExecuteComandWOReturn(query);
             }
       
 
@@ -83,9 +74,9 @@ namespace TiroirCaisse.Utils
             stringBuilder.Append("'" + client.NumeroFixe + "'" + ",");
             stringBuilder.Append("'" + client.NumeroPortable + "'" + ")");
 
-            sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
-
-            return 0;        
+           int res = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+           
+           return res;        
         }
 
         #endregion
@@ -129,14 +120,14 @@ namespace TiroirCaisse.Utils
 
         public int addForfait(Forfait forfait)
         {
-            string query = "INSERT forfait('nom','prix_ttc) VALUES(";
+            string query = "INSERT INTO forfait('nom','prix_ttc') VALUES(";
             StringBuilder stringBuilder = new StringBuilder(query);
-            stringBuilder.Append(forfait.Nom + ",");
-            stringBuilder.Append(forfait.PrixTTC);
+            stringBuilder.Append("'" + forfait.Nom + "'" + ",");
+            stringBuilder.Append(forfait.PrixTTC + ")");
 
-            sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+            int res =  sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
 
-            return 0;
+            return res;
         }
 
         #endregion
@@ -168,20 +159,16 @@ namespace TiroirCaisse.Utils
             return listePrestation;
         }
 
-        public int deletePrestationtBy(string whereClause)
+        public int deletePrestationBy(string whereClause)
         {
-            int resultat;
+            int resultat = 0;
             string query = "DELETE FROM prestation";
             if (whereClause != null && whereClause != "")
             {
                 query += " WHERE " + whereClause;
-                sqliteAccess.ExecuteComandWOReturn(query);
-                resultat = 0;
+                resultat = sqliteAccess.ExecuteComandWOReturn(query);
             }
-            else
-            {
-                resultat = 1;
-            }
+
             return resultat;
         }
 
@@ -304,38 +291,34 @@ namespace TiroirCaisse.Utils
 
         public int deleteVendeurBy(string whereClause)
         {
-            int resultat;
+            int resultat =0;
             string query = "DELETE FROM vendeur";
             if (whereClause != null && whereClause != "")
             {
                 query += " WHERE " + whereClause;
-                sqliteAccess.ExecuteComandWOReturn(query);
-                resultat = 0;
+                resultat = sqliteAccess.ExecuteComandWOReturn(query);
             }
-            else
-            {
-                resultat = 1;
-            }
+
             return resultat;
         }
 
         public int addVendeur(Vendeur vendeur)
         {
-            string query = "INSERT vendeur('nom','prenom','date_arrivee', 'type_contrat') VALUES(";
+            string query = "INSERT INTO vendeur('nom','prenom', 'type_contrat') VALUES(";
             StringBuilder stringBuilder = new StringBuilder(query);
-            stringBuilder.Append(vendeur.Nom + ",");
-            stringBuilder.Append(vendeur.Prenom + ",");
-            stringBuilder.Append(vendeur.TypeContrat + ")");
+            stringBuilder.Append("'" + vendeur.Nom + "'" + ",");
+            stringBuilder.Append("'" + vendeur.Prenom + "'" + ",");
+            stringBuilder.Append("'" + vendeur.TypeContrat + "'" + ")");
 
-            sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+            int res = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
 
-            return 0;
+            return res;
         
     }
 
         #endregion
 
-        #region Fonctions liées à l'entité Ventes
+        #region Fonctions liées à l'entité Vente
 
         public List<Vente> getAllVentesBy(string whereClause)
         {
@@ -362,7 +345,7 @@ namespace TiroirCaisse.Utils
             
         }
 
-        public int deleteVentesBy(string whereClause)
+        public int deleteVenteBy(string whereClause)
         {
             int resultat;
             string query = "DELETE FROM vente";
@@ -424,5 +407,97 @@ namespace TiroirCaisse.Utils
         }
 
         #endregion
+
+        #region Fonctions liées à l'entité CategorieProduit
+
+        List<CategorieProduit> getAllCategorieProduitBy(string whereClause)
+        {
+            List<CategorieProduit> listeCategorieProduit = new List<CategorieProduit>();
+            string query = "SELECT * FROM categorie_produit";
+            if (whereClause != null && whereClause != "")
+            {
+                query += " WHERE " + whereClause;
+            }
+
+            SQLiteDataReader dataReader = sqliteAccess.ExecuteCommandWReturn(query);
+            while (dataReader.Read())
+            {
+                listeCategorieProduit.Add(new CategorieProduit(dataReader["nom"].ToString()));
+            }
+
+            return listeCategorieProduit;
+        }
+
+        public int deleteCategorieProduitBy(string whereClause)
+        {
+            int resultat = 0;
+            string query = "DELETE FROM categorie_produit";
+            if (whereClause != null && whereClause != "")
+            {
+                query += " WHERE " + whereClause;
+                resultat = sqliteAccess.ExecuteComandWOReturn(query);
+            }
+
+            return resultat;
+        }
+
+        public int addCategorieProduit(CategorieProduit categorie)
+        {
+            string query = "INSERT INTO categorie_produit('nom') VALUES(";
+            StringBuilder stringBuilder = new StringBuilder(query);
+            stringBuilder.Append("'" + categorie.Nom + "'" + ")");
+
+            int res = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+
+            return res;
+        }
+
+
+        #endregion
+
+        #region Fonctions liées à l'entité CategoriePrestation
+
+        List<CategoriePrestation> getAllCategoriePrestationBy(string whereClause)
+        {
+            List<CategoriePrestation> listeCategoriePrestation = new List<CategoriePrestation>();
+            string query = "SELECT * FROM categorie_prestation";
+            if (whereClause != null && whereClause != "")
+            {
+                query += " WHERE " + whereClause;
+            }
+
+            SQLiteDataReader dataReader = sqliteAccess.ExecuteCommandWReturn(query);
+            while (dataReader.Read())
+            {
+                listeCategoriePrestation.Add(new CategoriePrestation(dataReader["nom"].ToString()));
+            }
+
+            return listeCategoriePrestation;
+        }
+
+        public int deleteCategoriePrestationBy(string whereClause)
+        {
+            int resultat = 0;
+            string query = "DELETE FROM categorie_prestation";
+            if (whereClause != null && whereClause != "")
+            {
+                query += " WHERE " + whereClause;
+                resultat = sqliteAccess.ExecuteComandWOReturn(query);
+            }
+
+            return resultat;
+        }
+
+        public int addCategoriePrestation(CategoriePrestation categorie)
+        {
+            string query = "INSERT INTO categorie_prestation('nom') VALUES(";
+            StringBuilder stringBuilder = new StringBuilder(query);
+            stringBuilder.Append("'" + categorie.Nom + "'" + ")");
+
+            int res = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+
+            return res;
+        }
+        #endregion 
     }
 }
