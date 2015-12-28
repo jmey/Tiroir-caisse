@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,17 +13,72 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TiroirCaisse.Entities;
+using TiroirCaisse.src.Controllers;
 
-namespace TiroirCaisse.src.Views.Produit
+namespace TiroirCaisse.src.Views.Produits
 {
     /// <summary>
     /// Logique d'interaction pour VisualisationProduitPage.xaml
     /// </summary>
-    public partial class VisualisationProduitPage : Page
+    public partial class VisualisationProduitPage : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private ProduitController produitController { get; set; }
+        private List<Produit> _listProduit;
+        public List<Produit> listProduit
+        {
+            get { return _listProduit; }
+            set
+            {
+                _listProduit = value;
+                OnPropertyChanged("listProduit");
+            }
+        }
         public VisualisationProduitPage()
         {
+
+            produitController = new ProduitController();
+
             InitializeComponent();
+            DataGrid.DataContext = this;
+
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            listProduit = produitController.getAllProduits();
+        }
+        private void DataGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                if (MessageBox.Show("Etes vous sûr de supprimer cet élement ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Produit selectedProduit = DataGrid.SelectedItem as Produit;
+                    int res = produitController.supprimerProduit(selectedProduit);
+                    if (res == 1)
+                    {
+                        MessageBox.Show("L'élement a été supprimé", "Informations");
+                        listProduit = produitController.getAllProduits();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Echec de la supression", "Informations");
+                    }
+                }
+
+            }
+        }
+
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

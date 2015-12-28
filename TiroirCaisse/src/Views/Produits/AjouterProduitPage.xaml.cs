@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TiroirCaisse.src.Views.Produit
+namespace TiroirCaisse.src.Views.Produits
 {
     /// <summary>
     /// Logique d'interaction pour AjouterProduitPage.xaml
@@ -23,6 +23,11 @@ namespace TiroirCaisse.src.Views.Produit
         public AjouterProduitPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TiroirCaisse.src.Views.Produit
+namespace TiroirCaisse.src.Views.Produits
 {
     /// <summary>
     /// Logique d'interaction pour MainPageProduit.xaml

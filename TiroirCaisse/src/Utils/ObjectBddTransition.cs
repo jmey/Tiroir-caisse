@@ -410,7 +410,7 @@ namespace TiroirCaisse.Utils
 
         #region Fonctions liées à l'entité CategorieProduit
 
-        List<CategorieProduit> getAllCategorieProduitBy(string whereClause)
+        public List<CategorieProduit> getAllCategorieProduitBy(string whereClause)
         {
             List<CategorieProduit> listeCategorieProduit = new List<CategorieProduit>();
             string query = "SELECT * FROM categorie_produit";
@@ -457,7 +457,7 @@ namespace TiroirCaisse.Utils
 
         #region Fonctions liées à l'entité CategoriePrestation
 
-        List<CategoriePrestation> getAllCategoriePrestationBy(string whereClause)
+        public List<CategoriePrestation> getAllCategoriePrestationBy(string whereClause)
         {
             List<CategoriePrestation> listeCategoriePrestation = new List<CategoriePrestation>();
             string query = "SELECT * FROM categorie_prestation";

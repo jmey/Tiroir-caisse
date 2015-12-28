@@ -24,5 +24,10 @@ namespace TiroirCaisse.src.Views.Prestations
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

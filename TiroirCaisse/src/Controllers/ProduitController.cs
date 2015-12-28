@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TiroirCaisse.Entities;
+using TiroirCaisse.src.Entities;
 using TiroirCaisse.Utils;
 
 namespace TiroirCaisse.src.Controllers
@@ -31,5 +32,21 @@ namespace TiroirCaisse.src.Controllers
             int res = transition.deleteProduitBy("id=" + produit.Id);
             return res;
         }
+        public List<CategorieProduit> getAllCategorieProduit()
+        {
+            List<CategorieProduit> listCategorie = transition.getAllCategorieProduitBy("");
+            return listCategorie;
+        }
+        public int ajouterCategorieProduit(CategorieProduit categorie)
+        {
+            int res = transition.addCategorieProduit(categorie);
+            return res;
+        }
+        public int supprimerCategorieProduit(CategorieProduit categorie)
+        {
+            int res = transition.deleteCategorieProduitBy("id=" + categorie.Id);
+            return res;
+        }
     }
+
 }

@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Prestations"
       mc:Ignorable="d" 
       d:DesignHeight="913" d:DesignWidth="987"
-      Title="VisualisationCategoriePrestationPage">
+      Title="VisualisationCategoriePrestationPage" Loaded="Page_Loaded">
 
     <Grid>
 
-        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listCategorieProduit, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
+        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listCategoriePrestation, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
                 <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
