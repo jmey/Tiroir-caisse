@@ -12,16 +12,16 @@
 
         <TabControl TabStripPlacement="Left"  >
             <TabItem Header="Ajouter une prestation" >
-                <Frame Name="ContentControlAjouterProduit" />
+                <Frame Name="ContentControlAjouterPrestation" />
             </TabItem>
             <TabItem Header="Visualisation des prestations" >
-                <Frame Name="ContentControlVisualisationProduits" />
+                <Frame Name="ContentControlVisualisationPrestations" />
             </TabItem>
             <TabItem Header="Ajouter une catégorie de prestations" >
-                <Frame Name="ContentControlAjouterCategorieProduit" />
+                <Frame Name="ContentControlAjouterCategoriePrestation" />
             </TabItem>
             <TabItem Header="Visualisation des catégories de prestations" >
-                <Frame Name="ContentControlVisualisationCategorieProduit" />
+                <Frame Name="ContentControlVisualisationCategoriePrestation" />
             </TabItem>
         </TabControl>
         <Frame Name="FrameContent" Grid.ColumnSpan="2"/>

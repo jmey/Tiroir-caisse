@@ -23,6 +23,10 @@ namespace TiroirCaisse.src.Views.Prestations
         public MainPagePrestation()
         {
             InitializeComponent();
+            ContentControlAjouterCategoriePrestation.Content = new AjouterCategoriePrestationPage();
+            ContentControlVisualisationCategoriePrestation.Content = new VisualisationCategoriePrestationPage();
+            ContentControlAjouterPrestation.Content = new AjouterPrestationPage();
+            ContentControlVisualisationPrestations.Content = new VisualisationPrestationPage();
         }
     }
 }

@@ -154,3 +154,11 @@ E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Ventes\VisualisationVentePage.
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.g.resources
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.Properties.Resources.resources
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csproj.GenerateResource.Cache
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\AjouterCategoriePrestationPage.g.cs
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\VisualisationCategoriePrestationPage.g.cs
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterCategorieProduitPage.g.cs
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationCategorieProduitPage.g.cs
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\AjouterCategoriePrestationPage.baml
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\VisualisationCategoriePrestationPage.baml
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterCategorieProduitPage.baml
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationCategorieProduitPage.baml

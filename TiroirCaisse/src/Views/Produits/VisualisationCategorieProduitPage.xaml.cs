@@ -24,21 +24,21 @@ namespace TiroirCaisse.src.Views.Produits
     public partial class VisualisationCategorieProduitPage : Page, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ProduitController prestationController { get; set; }
-        private List<CategorieProduit> _listCategoriePrestation;
-        public List<CategorieProduit> listCategoriePrestation
+        private ProduitController produitController { get; set; }
+        private List<CategorieProduit> _listCategorieProduit;
+        public List<CategorieProduit> listCategorieProduit
         {
-            get { return _listCategoriePrestation; }
+            get { return _listCategorieProduit; }
             set
             {
-                _listCategoriePrestation = value;
-                OnPropertyChanged("listCategoriePrestation");
+                _listCategorieProduit = value;
+                OnPropertyChanged("listCategorieProduit");
             }
         }
         public VisualisationCategorieProduitPage()
         {
 
-            prestationController = new ProduitController();
+            produitController = new ProduitController();
 
             InitializeComponent();
             DataGrid.DataContext = this;
@@ -46,7 +46,7 @@ namespace TiroirCaisse.src.Views.Produits
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            listCategoriePrestation = prestationController.getAllCategorieProduit();
+            listCategorieProduit = produitController.getAllCategorieProduit();
         }
         private void DataGrid_KeyDown(object sender, KeyEventArgs e)
         {
@@ -55,11 +55,11 @@ namespace TiroirCaisse.src.Views.Produits
                 if (MessageBox.Show("Etes vous sûr de supprimer cet élement ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     CategorieProduit selectedCategorie = DataGrid.SelectedItem as CategorieProduit;
-                    int res = prestationController.supprimerCategorieProduit(selectedCategorie);
+                    int res = produitController.supprimerCategorieProduit(selectedCategorie);
                     if (res == 1)
                     {
                         MessageBox.Show("L'élement a été supprimé", "Informations");
-                        listCategoriePrestation = prestationController.getAllCategorieProduit();
+                        listCategorieProduit = produitController.getAllCategorieProduit();
 
                     }
                     else

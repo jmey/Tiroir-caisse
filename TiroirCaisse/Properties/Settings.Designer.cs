@@ -31,5 +31,29 @@ namespace TiroirCaisse.Properties {
                 return ((bool)(this["TestMode"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Tiroir-caisse\\TiroirCaisse\\DataBase\\TiroirCaisseDB.db")]
+        public string PathDB {
+            get {
+                return ((string)(this["PathDB"]));
+            }
+            set {
+                this["PathDB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\TiroirCaisseDBBackup.db123")]
+        public string PathBackup {
+            get {
+                return ((string)(this["PathBackup"]));
+            }
+            set {
+                this["PathBackup"] = value;
+            }
+        }
     }
 }

@@ -13,10 +13,10 @@ namespace TiroirCaisse.ExternAccess
 
         #region Attributs
 
-        private const string SQLitePath = "TiroirCaisseDBTest.db";
         private static SQLiteAccess _Instance;
         private bool Connected { get; set; }
         private SQLiteConnection Connection { get; set; }
+        private SQLiteConnection ConnectionBackup { get; set; }
         public static SQLiteAccess Instance
         {
             get
@@ -39,7 +39,8 @@ namespace TiroirCaisse.ExternAccess
 
         private SQLiteAccess()
         {
-            Connection = new SQLiteConnection("Data Source=E:\\Tiroir-caisse\\TiroirCaisse\\DataBase\\TiroirCaisseDB.db; Version=3; Legacy Format=True;");
+            Connection = new SQLiteConnection("Data Source=" + @Properties.Settings.Default.PathDB + "; Version=3; Legacy Format=True;");
+            ConnectionBackup = new SQLiteConnection("Data Source=" + @Properties.Settings.Default.PathBackup + "; Version=3; Legacy Format=True;");
             Connected = false;
         }
 
@@ -55,6 +56,7 @@ namespace TiroirCaisse.ExternAccess
             try
             {
                 Connection.Open();
+                ConnectionBackup.Open();
                 Connected = true;
             }
             catch
@@ -68,6 +70,7 @@ namespace TiroirCaisse.ExternAccess
             try
             {
                 Connection.Close();
+                ConnectionBackup.Close();
                 Connected = false;
             }
             catch
@@ -105,6 +108,7 @@ namespace TiroirCaisse.ExternAccess
             if (!Connected)
                 OpenConnection();
             SQLiteCommand oCommand = new SQLiteCommand(_command, Connection);
+            SQLiteCommand oCommandBackup = new SQLiteCommand(_command, ConnectionBackup);
             int res;
 
             if (Properties.Settings.Default.TestMode)
@@ -116,6 +120,11 @@ namespace TiroirCaisse.ExternAccess
             try
             {
                 res = oCommand.ExecuteNonQuery();
+                try
+                {
+                    oCommandBackup.ExecuteNonQuery();
+                }
+                catch { }
             }
             catch
             {

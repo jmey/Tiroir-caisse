@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Produits"
       mc:Ignorable="d" 
       d:DesignHeight="913" d:DesignWidth="987"
-      Title="VisualisationCategorieProduitPage">
+      Title="VisualisationCategorieProduitPage" Loaded="Page_Loaded">
     
     <Grid>
 

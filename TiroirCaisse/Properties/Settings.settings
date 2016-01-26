@@ -5,5 +5,11 @@
     <Setting Name="TestMode" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="PathDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Tiroir-caisse\TiroirCaisse\DataBase\TiroirCaisseDB.db</Value>
+    </Setting>
+    <Setting Name="PathBackup" Type="System.String" Scope="User">
+      <Value Profile="(Default)">F:\TiroirCaisseDBBackup.db123</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

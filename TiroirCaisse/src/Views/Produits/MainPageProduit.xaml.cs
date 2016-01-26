@@ -23,6 +23,10 @@ namespace TiroirCaisse.src.Views.Produits
         public MainPageProduit()
         {
             InitializeComponent();
+            ContentControlAjouterCategorieProduit.Content = new AjouterCategorieProduitPage();
+            ContentControlVisualisationCategorieProduit.Content = new VisualisationCategorieProduitPage();
+            ContentControlAjouterProduit.Content = new AjouterProduitPage();
+            ContentControlVisualisationProduits.Content = new VisualisationProduitPage();
         }
     }
 }

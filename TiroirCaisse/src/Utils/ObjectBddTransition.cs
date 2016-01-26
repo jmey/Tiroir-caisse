@@ -243,7 +243,7 @@ namespace TiroirCaisse.Utils
         public int addProduit(Produit produit)
         {
             int resultat;
-            string query = "INSERT produit('nom', 'type', 'nombre_stock', 'seuil_alerte', 'fournisseur', 'reference_fournisseur', 'prix_fournisseur', 'prix_ttc', id_categorie_prestation) VALUES(";
+            string query = "INSERT INTO produit('nom', 'type', 'nombre_stock', 'seuil_alerte', 'fournisseur', 'reference_fournisseur', 'prix_fournisseur', 'prix_ttc', id_categorie_prestation) VALUES(";
             if (produit.Categorie.Id != -1)
             {
                 StringBuilder stringBuilder = new StringBuilder(query);
@@ -422,7 +422,7 @@ namespace TiroirCaisse.Utils
             SQLiteDataReader dataReader = sqliteAccess.ExecuteCommandWReturn(query);
             while (dataReader.Read())
             {
-                listeCategorieProduit.Add(new CategorieProduit(dataReader["nom"].ToString()));
+                listeCategorieProduit.Add(new CategorieProduit(int.Parse(dataReader["id"].ToString()), dataReader["nom"].ToString()));
             }
 
             return listeCategorieProduit;
@@ -469,7 +469,7 @@ namespace TiroirCaisse.Utils
             SQLiteDataReader dataReader = sqliteAccess.ExecuteCommandWReturn(query);
             while (dataReader.Read())
             {
-                listeCategoriePrestation.Add(new CategoriePrestation(dataReader["nom"].ToString()));
+                listeCategoriePrestation.Add(new CategoriePrestation(int.Parse(dataReader["id"].ToString()), dataReader["nom"].ToString()));
             }
 
             return listeCategoriePrestation;

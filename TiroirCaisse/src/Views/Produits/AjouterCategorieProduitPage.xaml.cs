@@ -48,11 +48,11 @@ namespace TiroirCaisse.src.Views.Produits
                 int res = produitController.ajouterCategorieProduit(categorieToAdd);
                 if (res == 1)
                 {
-                    MessageBox.Show("L'utilisateur a été rajouté");
+                    MessageBox.Show("La catégorie a été rajouté");
                 }
                 else
                 {
-                    MessageBox.Show("Problème interne, l'utilisateur n'a pas été ajouté");
+                    MessageBox.Show("Problème interne, la catégorie n'a pas été rajoutée");
                 }
             }
             else
