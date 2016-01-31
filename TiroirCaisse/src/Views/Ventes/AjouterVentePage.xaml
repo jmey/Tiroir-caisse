@@ -5,10 +5,37 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Ventes"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="913" d:DesignWidth="987"
       Title="AjouterVentePage">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="label1" Content="Vendeur" FontSize="20" />
+                <ComboBox Name="comboBox_vendeur" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Name="label2" Content="Client" FontSize="20" />
+                <ComboBox Name="comboBox_client" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <Label Name="label3" Content="Prestations" FontSize="20"/>
+                    <ListBox Name="listBox_Prestation" Width="300" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Name="label4" Content="Produit" FontSize="20"/>
+                    <ListBox Name="listBox_Produit" Width="300" />
+                </StackPanel>
+            </StackPanel>
+            <DataGrid>
+                
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" >
+                <TextBox Name="textbox_prix" />
+                <Label Name="label5" Content="€" />
+                <Button FontSize="20" Name="Button_valider" Content="Valider le payement" />
+        </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

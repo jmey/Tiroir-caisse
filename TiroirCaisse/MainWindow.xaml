@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Controls:MetroAnimatedSingleRowTabControl x:Name="MainTabControl">
             <TabItem Header="Ventes" Name="Ventes"  >
-                <Label Content="123444" />
+                <Frame Name="ContentControlVentes" />
             </TabItem>
             <TabItem Header="Clients" Name="Clients">
                 <Frame Name="ContentControlClients" />

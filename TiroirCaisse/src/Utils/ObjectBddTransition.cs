@@ -184,9 +184,8 @@ namespace TiroirCaisse.Utils
                 stringBuilder.Append(prestation.TypePrestation + ",");
                 stringBuilder.Append(prestation.Categorie.Id + ")");
 
-                sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+                resultat = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
 
-                resultat = 0;
             }
             else
             {
@@ -243,23 +242,22 @@ namespace TiroirCaisse.Utils
         public int addProduit(Produit produit)
         {
             int resultat;
-            string query = "INSERT INTO produit('nom', 'type', 'nombre_stock', 'seuil_alerte', 'fournisseur', 'reference_fournisseur', 'prix_fournisseur', 'prix_ttc', id_categorie_prestation) VALUES(";
+            string query = "INSERT INTO produit('nom', 'type', 'nombre_stock', 'seuil_alerte', 'fournisseur', 'reference_fournisseur', 'prix_fournisseur', 'prix_ttc', 'id_categorie_produit') VALUES(";
             if (produit.Categorie.Id != -1)
             {
                 StringBuilder stringBuilder = new StringBuilder(query);
-                stringBuilder.Append(produit.Nom + ",");
-                stringBuilder.Append(produit.Type + ",");
+                stringBuilder.Append("\"" + produit.Nom + "\"" + ",");
+                stringBuilder.Append("\"" + produit.Type + "\"" + ",");
                 stringBuilder.Append(produit.NombreStock + ",");
                 stringBuilder.Append(produit.SeuilAlerte + ",");
-                stringBuilder.Append(produit.Fournisseur + ",");
-                stringBuilder.Append(produit.ReferenceFournisseur + ",");
+                stringBuilder.Append("\"" + produit.Fournisseur + "\"" + ",");
+                stringBuilder.Append("\"" + produit.ReferenceFournisseur + "\"" + ",");
                 stringBuilder.Append(produit.PrixFournisseur + ",");
                 stringBuilder.Append(produit.Prix + ",");
                 stringBuilder.Append(produit.Categorie.Id + ")");
 
-                sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+                resultat = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
 
-                resultat = 0;
             }
             else
             {

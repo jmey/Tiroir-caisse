@@ -18,9 +18,9 @@ namespace TiroirCaisse.src.Views.Ventes
     /// <summary>
     /// Logique d'interaction pour MainPageVentes.xaml
     /// </summary>
-    public partial class MainPageVentes : Page
+    public partial class MainPageVente : Page
     {
-        public MainPageVentes()
+        public MainPageVente()
         {
             InitializeComponent();
         }

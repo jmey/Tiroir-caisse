@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="913" d:DesignWidth="987"
-      Title="VisualisationProduitPage">
+      Title="VisualisationProduitPage" Loaded="Page_Loaded">
 
     <Grid>
 
@@ -20,7 +20,7 @@
                 <DataGridTextColumn x:Name="cReferenceFournisseur" Binding="{Binding ReferenceFournisseur}" Header="Réf. Fournisseur" Width="*" />
                 <DataGridTextColumn x:Name="cPrix" Binding="{Binding Prix}" Header="Prix" Width="0.5*" />
                 <DataGridTextColumn x:Name="cPrixFournisseur" Binding="{Binding PrixFournisseur}" Header="Prix fournisseurr" Width="0.5*" />
-                <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie}" Header="Catégorie" Width="*" />
+                <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie.Nom}" Header="Catégorie" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -19,6 +19,7 @@ using TiroirCaisse.src.Views.Prestations;
 using TiroirCaisse.src.Views.Forfaits;
 using TiroirCaisse.src.Views.Vendeurs;
 using TiroirCaisse.src.Views.Produits;
+using TiroirCaisse.src.Views.Ventes;
 
 namespace TiroirCaisse
 {
@@ -37,6 +38,7 @@ namespace TiroirCaisse
             ContentControlForfaits.Content = new MainPageForfait();
             ContentControlVendeurs.Content = new MainPageVendeur();
             ContentControlProduits.Content = new MainPageProduit();
+            ContentControlVentes.Content = new MainPageVente();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
