@@ -82,8 +82,8 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listProduits");
             }
         }
-        private List<Item> _listItems { get; set; }
-        public List<Item> listItems
+        private List<Element> _listItems { get; set; }
+        public List<Element> listItems
         {
             get
             {
@@ -109,7 +109,7 @@ namespace TiroirCaisse.src.Views.Ventes
             listClients = controller.getAllClients();
             listPrestations = controller.getAllPrestations();
             listProduits = controller.getAllProduits();
-            _listItems = new List<Item>();
+
         }
 
         protected void OnPropertyChanged(string name)
@@ -126,7 +126,7 @@ namespace TiroirCaisse.src.Views.Ventes
             if (listBox_prestation.SelectedItem != null)
             {
                Prestation selectedPrestation = (Prestation)listBox_prestation.SelectedItem;
-                listItems.Add(selectedPrestation);
+                dataGrid_Element.Items.Add(selectedPrestation);
             }
         }
 
@@ -135,7 +135,7 @@ namespace TiroirCaisse.src.Views.Ventes
             if (listBox_produit.SelectedItem != null)
             {
                 Produit selectedProduit = (Produit)listBox_produit.SelectedItem;
-                listItems.Add(selectedProduit);
+                dataGrid_Element.Items.Add(selectedProduit);
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TiroirCaisse.src.Entities
 {
-    public class Item
+    public class Element
     {
         public int Id { get; protected set; }
         public string Nom { get; protected set; }

@@ -7,7 +7,7 @@ using TiroirCaisse.src.Entities;
 
 namespace TiroirCaisse.Entities
 {
-   public  class Produit : Item
+   public  class Produit : Element
     {
 
         public int NombreStock { get; private set; }

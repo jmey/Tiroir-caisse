@@ -37,10 +37,12 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding listItems, Mode=TwoWay}" IsReadOnly="True">
-            <DataGridTextColumn x:Name="cType" Binding="{Binding Nom}" Header="Type" Width="0.5*" />
-            <DataGridTextColumn x:Name="cNom" Binding="{Binding Type}" Header="Nom" Width="0.5*" />
-            <DataGridTextColumn x:Name="cID" Binding="{Binding PrixTTC}" Header="Prix" Width="0.5*" />
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding listItems, Mode=TwoWay}" IsReadOnly="True" Name="dataGrid_Element">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="cType" Binding="{Binding Nom}" Header="Type" Width="0.5*" />
+                <DataGridTextColumn x:Name="cNom" Binding="{Binding Type}" Header="Nom" Width="0.5*" />
+                <DataGridTextColumn x:Name="cID" Binding="{Binding PrixTTC}" Header="Prix" Width="0.5*" />
+            </DataGrid.Columns>
         </DataGrid>
         <WrapPanel Grid.Row="2" HorizontalAlignment="Right">
             <TextBox Text="20.25" FontSize="20" FontWeight="Bold" />
