@@ -7,16 +7,13 @@ using TiroirCaisse.src.Entities;
 
 namespace TiroirCaisse.Entities
 {
-   public  class Produit
+   public  class Produit : Item
     {
-        public int Id { get; private set; }
-        public string Nom { get; private set; }
-        public string Type { get; private set; }
+
         public int NombreStock { get; private set; }
         public int SeuilAlerte { get; private set; }
         public string Fournisseur { get; private set; }
         public string ReferenceFournisseur { get; private set; }
-        public float Prix { get; private set; }
         public float PrixFournisseur { get; private set; }
         public CategorieProduit Categorie { get; private set; }
 
@@ -30,7 +27,7 @@ namespace TiroirCaisse.Entities
             SeuilAlerte = seuilAlerte;
             Fournisseur = fournisseur;
             ReferenceFournisseur = referenceFournisseur;
-            Prix = prix;
+            PrixTTC = prix;
             PrixFournisseur = prixFournisseur;
             Categorie = categorie;
         }
@@ -45,7 +42,7 @@ namespace TiroirCaisse.Entities
             SeuilAlerte = seuilAlerte;
             Fournisseur = fournisseur;
             ReferenceFournisseur = referenceFournisseur;
-            Prix = prix;
+            PrixTTC = prix;
             PrixFournisseur = prixFournisseur;
             Categorie = categorie;
         }

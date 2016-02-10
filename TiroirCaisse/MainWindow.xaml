@@ -25,9 +25,6 @@
             <TabItem Header="Clients" Name="Clients">
                 <Frame Name="ContentControlClients" />
             </TabItem>
-            <TabItem Header="Forfaits" Name="Forfaits" >
-                <Frame Name="ContentControlForfaits" />
-            </TabItem>
             <TabItem Header="Prestations" Name="Prestations" >
                 <Frame Name="ContentControlPrestations" />
             </TabItem>

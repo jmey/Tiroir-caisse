@@ -150,9 +150,9 @@ namespace TiroirCaisse.Utils
                 int idCategoriePrestation = int.Parse(dataReader["id_categorie_prestation"].ToString());
                 CategoriePrestation categoriePrestation = new CategoriePrestation(idCategoriePrestation, dataReader["categorie"].ToString());
 
-                List<Forfait> listeForfait = getAllForfaitsBy("f.id = (SELECT id_forfait FROM forfait_prestation WHERE id = " + idPrestation + ")");
+               
                 listePrestation.Add(new Prestation(idPrestation, dataReader["nom"].ToString(), int.Parse(dataReader["prix_ttc"].ToString()),
-                    dataReader["type_prestation"].ToString(), categoriePrestation, listeForfait
+                    dataReader["type_prestation"].ToString(), categoriePrestation
                     ));
             }
 
@@ -175,13 +175,13 @@ namespace TiroirCaisse.Utils
         public int addPrestation(Prestation prestation)
         {
             int resultat;
-            string query = "INSERT prestation('nom','prix_ttc','type_prestation', id_categorie_prestation) VALUES(";
+            string query = "INSERT INTO prestation('nom','prix_ttc','type_prestation', 'id_categorie_prestation') VALUES(";
             if(prestation.Categorie.Id != -1)
             { 
                 StringBuilder stringBuilder = new StringBuilder(query);
-                stringBuilder.Append(prestation.Nom + ",");
+                stringBuilder.Append("\"" + prestation.Nom + "\",");
                 stringBuilder.Append(prestation.PrixTTC + ",");
-                stringBuilder.Append(prestation.TypePrestation + ",");
+                stringBuilder.Append("\"" + prestation.Type + "\",");
                 stringBuilder.Append(prestation.Categorie.Id + ")");
 
                 resultat = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
@@ -253,7 +253,7 @@ namespace TiroirCaisse.Utils
                 stringBuilder.Append("\"" + produit.Fournisseur + "\"" + ",");
                 stringBuilder.Append("\"" + produit.ReferenceFournisseur + "\"" + ",");
                 stringBuilder.Append(produit.PrixFournisseur + ",");
-                stringBuilder.Append(produit.Prix + ",");
+                stringBuilder.Append(produit.PrixTTC + ",");
                 stringBuilder.Append(produit.Categorie.Id + ")");
 
                 resultat = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());

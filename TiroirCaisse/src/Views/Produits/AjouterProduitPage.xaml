@@ -9,7 +9,7 @@
       Title="AjouterProduitPage" Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,50,0,0">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="36,50,0,0">
             <DockPanel LastChildFill="False" >
                 <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
                 <TextBox x:Name="textBoxNom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>

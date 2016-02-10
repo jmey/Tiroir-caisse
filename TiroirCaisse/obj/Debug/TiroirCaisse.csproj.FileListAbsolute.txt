@@ -82,7 +82,6 @@ D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Vendeurs\VisualisationVendeurP
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Ventes\AjouterVentePage.baml
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Ventes\MainPageVente.baml
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Ventes\VisualisationVentePage.baml
-D:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\AjouterCategoriePrestationPage.g.cs
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\VisualisationCategoriePrestationPage.g.cs
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterCategorieProduitPage.g.cs
@@ -162,3 +161,4 @@ E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csproj.GenerateResource.Cac
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.exe
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.pdb
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache

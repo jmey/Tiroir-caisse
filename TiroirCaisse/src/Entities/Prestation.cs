@@ -7,34 +7,28 @@ using TiroirCaisse.src.Entities;
 
 namespace TiroirCaisse.Entities
 {
-    public class Prestation
+    public class Prestation : Item
     {
-        public int Id { get; private set; }
-        public string Nom { get; private set; }
-        public float PrixTTC { get; private set; }
-        public string TypePrestation { get; private set; }
-        public List<Forfait> ListForfait { get; private set; }
+
         public CategoriePrestation Categorie { get; private set; }
 
-        public Prestation(int id, string nom, float prixTTC, string typePrestation, CategoriePrestation categorie, List<Forfait> listForfait )
+        public Prestation(int id, string nom, float prixTTC, string typePrestation, CategoriePrestation categorie)
         {
             Id = id;
             Nom = nom;
             PrixTTC = prixTTC;
-            TypePrestation = typePrestation;
+            Type = typePrestation;
             Categorie = categorie;
-            ListForfait = ListForfait;
 
         }
 
-        public Prestation(string nom, float prixTTC, string typePrestation, CategoriePrestation categorie, List<Forfait> listForfait)
+        public Prestation(string nom, float prixTTC, string typePrestation, CategoriePrestation categorie)
         {
             Id = -1;
             Nom = nom;
             PrixTTC = prixTTC;
-            TypePrestation = typePrestation;
+            Type = typePrestation;
             Categorie = categorie;
-            ListForfait = ListForfait;
 
         }
     }

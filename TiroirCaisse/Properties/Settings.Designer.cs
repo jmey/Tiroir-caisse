@@ -34,7 +34,7 @@ namespace TiroirCaisse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\Tiroir-caisse\\TiroirCaisse\\DataBase\\TiroirCaisseDB.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Tiroir-caisse\\TiroirCaisse\\DataBase\\TiroirCaisseDB.db")]
         public string PathDB {
             get {
                 return ((string)(this["PathDB"]));
@@ -46,7 +46,7 @@ namespace TiroirCaisse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\TiroirCaisseDBBackup.db123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Tiroir-caisse\\TiroirCaisse\\DataBaseTiroirCaisseDBBackup.db123")]
         public string PathBackup {
             get {
                 return ((string)(this["PathBackup"]));

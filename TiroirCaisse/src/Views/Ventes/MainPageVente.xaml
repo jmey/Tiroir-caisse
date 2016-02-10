@@ -12,18 +12,13 @@
         <Grid>
 
             <TabControl TabStripPlacement="Left"  >
-                <TabItem Header="Ajouter un produit" >
-                    <Frame Name="ContentControlAjouterProduit" />
+                <TabItem Header="Ajouter une vente" >
+                    <Frame Name="ContentControlAjouterVente" />
                 </TabItem>
-                <TabItem Header="Visualisation des produits" >
-                    <Frame Name="ContentControlVisualisationProduits" />
+                <TabItem Header="Visualisation des ventes" >
+                    <Frame Name="ContentControlVisualisationVentes" />
                 </TabItem>
-                <TabItem Header="Ajouter une catégorie de produits" >
-                    <Frame Name="ContentControlAjouterCategorieProduit" />
-                </TabItem>
-                <TabItem Header="Visualisation des catégories de produits" >
-                    <Frame Name="ContentControlVisualisationCategorieProduit" />
-                </TabItem>
+
             </TabControl>
             <Frame Name="FrameContent" Grid.ColumnSpan="2"/>
         </Grid>

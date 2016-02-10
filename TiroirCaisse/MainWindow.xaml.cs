@@ -35,7 +35,6 @@ namespace TiroirCaisse
             InitializeComponent();
             ContentControlClients.Content = new MainPageClient();
             ContentControlPrestations.Content = new MainPagePrestation();
-            ContentControlForfaits.Content = new MainPageForfait();
             ContentControlVendeurs.Content = new MainPageVendeur();
             ContentControlProduits.Content = new MainPageProduit();
             ContentControlVentes.Content = new MainPageVente();

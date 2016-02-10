@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Prestations"
       mc:Ignorable="d" 
       d:DesignHeight="913" d:DesignWidth="987"
-      Title="VisualisationPrestationPage">
+      Title="VisualisationPrestationPage" Loaded="Page_Loaded">
 
     <Grid>
 
@@ -14,10 +14,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.5*" />
                 <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
-                <DataGridTextColumn x:Name="cPrix" Binding="{Binding PrixTTC}" Header="Nom" Width="*"  />
+                <DataGridTextColumn x:Name="cPrix" Binding="{Binding PrixTTC}" Header="Prix TTC" Width="*"  />
                 <DataGridTextColumn x:Name="cType" Binding="{Binding Type}" Header="Type" Width="*"  />
-                <DataGridTextColumn x:Name="cListForfait" Binding="{Binding ListForfait}" Header="Stock" Width="*" />
-                <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie}" Header="Seuil d'alerte" Width="*" />
+                <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie.Nom}" Header="Categorie" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

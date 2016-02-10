@@ -21,7 +21,7 @@ namespace TiroirCaisse.src.Views.Prestations
     /// <summary>
     /// Logique d'interaction pour VisualisationPrestationPage.xaml
     /// </summary>
-    public partial class VisualisationPrestationPage : Page//, INotifyPropertyChanged
+    public partial class VisualisationPrestationPage : Page, INotifyPropertyChanged
     {
        
         public event PropertyChangedEventHandler PropertyChanged;

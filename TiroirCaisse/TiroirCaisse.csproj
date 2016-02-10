@@ -97,6 +97,7 @@
     <Compile Include="src\Entities\CategorieProduit.cs" />
     <Compile Include="src\Entities\Client.cs" />
     <Compile Include="src\Entities\Forfait.cs" />
+    <Compile Include="src\Entities\Item.cs" />
     <Compile Include="src\Entities\Prestation.cs" />
     <Compile Include="src\Entities\Produit.cs" />
     <Compile Include="src\Entities\Vendeur.cs" />
