@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,23 +21,44 @@ namespace TiroirCaisse.src.Views.Produits
     /// <summary>
     /// Logique d'interaction pour AjouterCategorieProduitPage.xaml
     /// </summary>
-    public partial class AjouterCategorieProduitPage : Page
+    public partial class AjouterCategorieProduitPage : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public ProduitController produitController = new ProduitController();
         public AjouterCategorieProduitPage()
         {
             InitializeComponent();
+            DataContext = this;
         }
+        private List<FamilleProduit> _listFamille;
+        public List<FamilleProduit> listFamille
+        {
+            get
+            {
+                return _listFamille;
+            }
+            set
+            {
+                _listFamille = value;
+                OnPropertyChanged("listFamille");
+
+            }
+        }
+
 
         private CategorieProduit creerCategorieFromView()
         {
             CategorieProduit res = null;
-            try
+            FamilleProduit famille = listFamille[comboBox_famille.SelectedIndex];
+            if (famille != null)
             {
-               res = new CategorieProduit(textBoxNom.Text);
-            }
-            catch
-            {
+                try
+                {
+                    res = new CategorieProduit(textBoxNom.Text, famille);
+                }
+                catch
+                {
+                }
             }
             return res;          
         }
@@ -58,6 +80,20 @@ namespace TiroirCaisse.src.Views.Produits
             else
             {
                 MessageBox.Show("Veuillez vérifier que les informations sont correctes (Bon format de date par exemple)");
+            }
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            listFamille = produitController.getAllFamilleProduit();
+            
+        }
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

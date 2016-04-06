@@ -80,5 +80,6 @@ namespace TiroirCaisse.src.Views.Produits
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+
     }
 }

@@ -39,11 +39,24 @@ namespace TiroirCaisse.src.Views.Produits
                 OnPropertyChanged("listCategorie");
             }
         }
+        private List<FamilleProduit> _listFamille;
+        public List<FamilleProduit> listFamille
+        {
+            get
+            {
+                return _listFamille;
+            }
+            set
+            {
+                _listFamille = value;
+                OnPropertyChanged("listFamille");
+            }
+        }
         public ProduitController ProduitController = new ProduitController();
         public AjouterProduitPage()
         {
             InitializeComponent();
-            ComboBoxCategorie.DataContext = this;
+            DataContext = this;
         }
 
 
@@ -92,6 +105,7 @@ namespace TiroirCaisse.src.Views.Produits
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             listCategorie = ProduitController.getAllCategorieProduit();
+            listFamille = ProduitController.getAllFamilleProduit();
         }
         protected void OnPropertyChanged(string name)
         {
@@ -101,6 +115,12 @@ namespace TiroirCaisse.src.Views.Produits
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        private void ComboBoxFamille_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FamilleProduit selectedFamille = listFamille[ComboBoxFamille.SelectedIndex];
+            listCategorie = ProduitController.getAllCategorieProduitByFamille(selectedFamille);
         }
     }
 }

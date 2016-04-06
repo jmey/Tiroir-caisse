@@ -33,5 +33,9 @@ namespace TiroirCaisse.Entities
             NumeroFixe = numeroFixe;
             NumeroPortable = numeroPortable;
         }
+        public override string ToString()
+        {
+            return Nom + " " + Prenom;
+        }
     }
 }

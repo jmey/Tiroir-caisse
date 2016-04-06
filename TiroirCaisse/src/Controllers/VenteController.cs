@@ -8,7 +8,7 @@ using TiroirCaisse.Utils;
 
 namespace TiroirCaisse.src.Controllers
 {
-    class VenteController
+    class VenteController : Controller
     {
         private ObjectBddTransition transition { get; set; }
         public VenteController()

@@ -5,10 +5,38 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Ventes"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="913" d:DesignWidth="987"
       Title="VisualisationVentePage">
 
     <Grid>
-        
+        <DockPanel LastChildFill="False" >
+            <DataGrid Name="DataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" ItemsSource="{Binding listVentes, Mode=TwoWay}" IsReadOnly="True" Loaded="DataGrid_Loaded" KeyDown="DataGrid_KeyDown">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.2*" />
+                    <DataGridTextColumn x:Name="cDate" Binding="{Binding DatePaiement, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="Date" Width="0.2*"   />
+                    <DataGridTextColumn x:Name="cVendeur" Binding="{Binding Vendeur.Nom}" Header="Vendeur" Width="0.2*"  />
+                    <DataGridTextColumn x:Name="cClient" Binding="{Binding Client.Nom}" Header="Client" Width="0.2*"  />
+                    <DataGridTextColumn x:Name="cPrixTotal" Binding="{Binding PrixTotal}" Header="Prix" Width="0.2*" />
+                    <DataGridTextColumn x:Name="cTypePaiement" Binding="{Binding TypePaiement}" Header="type de paiement" Width="0.2*" />
+                    
+                    <DataGridTemplateColumn Header="Prestation(s)" Width="0.2*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox ItemsSource="{Binding ListPrestation}" DisplayMemberPath="Nom"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Produit(s)" Width="0.2*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox ItemsSource="{Binding ListProduit}" DisplayMemberPath="Nom"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Exporter CSV" FontSize="20" DockPanel.Dock="Bottom" Name="ExportCSV_Button" Click="ExportCSV_Button_Click"  />
+        </DockPanel>
     </Grid>
 </Page>

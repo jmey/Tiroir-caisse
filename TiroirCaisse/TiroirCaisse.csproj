@@ -88,6 +88,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="src\Controllers\ClientController.cs" />
+    <Compile Include="src\Controllers\Controller.cs" />
     <Compile Include="src\Controllers\ForfaitController.cs" />
     <Compile Include="src\Controllers\PrestationController.cs" />
     <Compile Include="src\Controllers\ProduitController.cs" />
@@ -96,16 +97,24 @@
     <Compile Include="src\Entities\CategoriePrestation.cs" />
     <Compile Include="src\Entities\CategorieProduit.cs" />
     <Compile Include="src\Entities\Client.cs" />
+    <Compile Include="src\Entities\FamilleProduit.cs" />
     <Compile Include="src\Entities\Forfait.cs" />
     <Compile Include="src\Entities\Element.cs" />
     <Compile Include="src\Entities\Prestation.cs" />
     <Compile Include="src\Entities\Produit.cs" />
+    <Compile Include="src\Entities\MontantCaisse.cs" />
     <Compile Include="src\Entities\Vendeur.cs" />
     <Compile Include="src\Entities\Vente.cs" />
     <Compile Include="src\ExternAccess\SQLiteAccess.cs" />
-    <Compile Include="src\Utils\Error.cs" />
-    <Compile Include="src\Utils\ErrorManager.cs" />
-    <Compile Include="src\Utils\ObjectBddTransition.cs" />
+    <Compile Include="src\ExternAccess\Utils\Error.cs" />
+    <Compile Include="src\ExternAccess\Utils\ErrorManager.cs" />
+    <Compile Include="src\ExternAccess\Utils\ObjectBddTransition.cs" />
+    <Compile Include="src\Views\Caisse\MainPageCaisse.xaml.cs">
+      <DependentUpon>MainPageCaisse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Caisse\VisualisationCaissePage.xaml.cs">
+      <DependentUpon>VisualisationCaissePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Views\Clients\AjouterClientPage.xaml.cs">
       <DependentUpon>AjouterClientPage.xaml</DependentUpon>
     </Compile>
@@ -142,6 +151,9 @@
     <Compile Include="src\Views\Produits\AjouterCategorieProduitPage.xaml.cs">
       <DependentUpon>AjouterCategorieProduitPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Views\Produits\AjouterFamilleProduitPage.xaml.cs">
+      <DependentUpon>AjouterFamilleProduitPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Views\Produits\AjouterProduitPage.xaml.cs">
       <DependentUpon>AjouterProduitPage.xaml</DependentUpon>
     </Compile>
@@ -150,6 +162,9 @@
     </Compile>
     <Compile Include="src\Views\Produits\VisualisationCategorieProduitPage.xaml.cs">
       <DependentUpon>VisualisationCategorieProduitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Produits\VisualisationFamilleProduitPage.xaml.cs">
+      <DependentUpon>VisualisationFamilleProduitPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Views\Produits\VisualisationProduitPage.xaml.cs">
       <DependentUpon>VisualisationProduitPage.xaml</DependentUpon>
@@ -184,6 +199,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="src\Views\Caisse\MainPageCaisse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Caisse\VisualisationCaissePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\Views\Clients\AjouterClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +255,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="src\Views\Produits\AjouterFamilleProduitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\Views\Produits\AjouterProduitPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\Views\Produits\VisualisationCategorieProduitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Produits\VisualisationFamilleProduitPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

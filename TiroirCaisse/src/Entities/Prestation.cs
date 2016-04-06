@@ -31,5 +31,9 @@ namespace TiroirCaisse.Entities
             Categorie = categorie;
 
         }
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }

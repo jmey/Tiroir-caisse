@@ -46,6 +46,9 @@ namespace TiroirCaisse.Entities
             PrixFournisseur = prixFournisseur;
             Categorie = categorie;
         }
-
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }

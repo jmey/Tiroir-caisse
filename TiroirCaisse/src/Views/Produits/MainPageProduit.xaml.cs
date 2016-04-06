@@ -27,6 +27,8 @@ namespace TiroirCaisse.src.Views.Produits
             ContentControlVisualisationCategorieProduit.Content = new VisualisationCategorieProduitPage();
             ContentControlAjouterProduit.Content = new AjouterProduitPage();
             ContentControlVisualisationProduits.Content = new VisualisationProduitPage();
+            ContentControlVisualisationFamilleProduit.Content = new VisualisationFamilleProduitPage();
+            ContentControlAjouterFamilleProduit.Content = new AjouterFamilleProduitPage();
         }
     }
 }

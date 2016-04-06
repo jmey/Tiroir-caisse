@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -78,6 +79,17 @@ namespace TiroirCaisse.src.Views.Produits
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private void ExportCSV_Button_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                List<object> listObject = listProduit.Select(x => x as object).ToList();
+                string csv = produitController.listToCSV(listObject, typeof(Produit));
+                produitController.saveCSVFile(dialog.FileName, csv);
             }
         }
     }

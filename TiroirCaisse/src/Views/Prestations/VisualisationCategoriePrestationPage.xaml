@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listCategoriePrestation, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
+        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listCategoriePrestation, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown" MaxHeight="700">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
                 <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />

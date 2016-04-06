@@ -18,26 +18,38 @@
             <StackPanel Orientation="Vertical" Width="300" >
                 <DockPanel LastChildFill="False" Margin="0,20,0,20" >
                     <Label  Content="Vendeur" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                    <ComboBox Width="200" Text="123" DockPanel.Dock="Right" FontSize="20" ItemsSource="{Binding listVendeurs}"  DisplayMemberPath="Nom"/>
+                    <ComboBox Width="200" Text="123" DockPanel.Dock="Right" FontSize="20" ItemsSource="{Binding listVendeurs}"  DisplayMemberPath="Nom" Name="comboBox_vendeur" IsEditable="True" />
                 </DockPanel>
                 <DockPanel LastChildFill="False" Margin="0,20,0,20">
                     <Label Content="Client" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                    <ComboBox Width="200" Text="123" DockPanel.Dock="Right" FontSize="20" ItemsSource="{Binding listClients}" DisplayMemberPath="Nom" />
+                    <ComboBox Width="200" Text="123" DockPanel.Dock="Right" FontSize="20" ItemsSource="{Binding listClients}" DisplayMemberPath="Nom" Name="comboBox_client" IsEditable="True" />
                 </DockPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Width="600" Margin="194,50,193,0" >
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Prestations"  FontSize="20" FontWeight="Bold" />
-                    <ListBox x:Name="listBox_prestation" Width="300" Height="150"  FontSize="20" Margin="0,10,10,0" ItemsSource="{Binding listPrestations}" DisplayMemberPath="Nom" MouseDoubleClick="ListBoxPrestation_MouseDoubleClick" />
-
+            <DockPanel LastChildFill="False">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="150,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Catégories Prestation"  FontSize="20" FontWeight="Bold" />
+                        <ComboBox ItemsSource="{Binding listCategoriePrestation}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Prestations"  FontSize="20" FontWeight="Bold" />
+                        <ListBox x:Name="listBox_prestation" Width="300" Height="150"  FontSize="20" Margin="0,10,10,0" ItemsSource="{Binding listPrestations}" DisplayMemberPath="Nom" MouseDoubleClick="ListBoxPrestation_MouseDoubleClick" />
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Vertical"  >
-                    <Label Content="Produits"  FontSize="20" FontWeight="Bold" />
-                    <ListBox Width="300" Height="150" Margin="10,10,0,0" FontSize="20"  ItemsSource="{Binding listProduits}" DisplayMemberPath="Nom" Name="listBox_produit" MouseDoubleClick="ListBoxProduit_MouseDoubleClick" />
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="0,0,0,150">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Catégories Produit"  FontSize="20" FontWeight="Bold" />
+                        <ComboBox ItemsSource="{Binding listCategorieProduit}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"  >
+                        <Label Content="Produits"  FontSize="20" FontWeight="Bold" />
+                        <ListBox Width="300" Height="150" Margin="10,10,0,0" FontSize="20"  ItemsSource="{Binding listProduits}" DisplayMemberPath="Nom" Name="listBox_produit" MouseDoubleClick="ListBoxProduit_MouseDoubleClick" />
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </DockPanel>
         </StackPanel>
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding listItems, Mode=TwoWay}" IsReadOnly="True" Name="dataGrid_Element">
+        
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding listItems, Mode=TwoWay}" IsReadOnly="True" Name="dataGrid_Element" MaxHeight="250" Margin="0,0,0,6">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cType" Binding="{Binding Nom}" Header="Type" Width="0.5*" />
                 <DataGridTextColumn x:Name="cNom" Binding="{Binding Type}" Header="Nom" Width="0.5*" />
@@ -45,8 +57,15 @@
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel Grid.Row="2" HorizontalAlignment="Right">
-            <TextBox Text="20.25" FontSize="20" FontWeight="Bold" />
+            <TextBox Text="{Binding PrixTotal}" FontSize="20" FontWeight="Bold" Name="textBox_prixTotal" Margin="40,0,0,0" />
             <Label Content="€" FontSize="20" FontWeight="Bold" />
+            <ComboBox Name="typePaiement_comboBox" Margin="40,0,40,0" FontSize="20" Width="200" >
+                <ComboBoxItem>Carte bancaire</ComboBoxItem>
+                <ComboBoxItem>Chèque</ComboBoxItem>
+                <ComboBoxItem>Espèces</ComboBoxItem>
+                
+            </ComboBox>
+            <Button Content="Valider l'achat" FontSize="20" Margin="40,0,40,0" Click="Button_Click" />
         </WrapPanel>
     </Grid>
 </Page>

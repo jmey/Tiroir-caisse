@@ -43,7 +43,11 @@
                 <TextBox x:Name="textBoxPrixFournisseur" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
-                <Label x:Name="label9" Content="Catégorie" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <Label x:Name="label9" Content="Famille" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <ComboBox x:Name="ComboBoxFamille" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"  ItemsSource="{Binding listFamille, Mode=TwoWay}" DisplayMemberPath="Nom" SelectedValuePath="Nom" SelectionChanged="ComboBoxFamille_SelectionChanged"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label10" Content="Catégorie" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
                 <ComboBox x:Name="ComboBoxCategorie" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"  ItemsSource="{Binding listCategorie, Mode=TwoWay}" DisplayMemberPath="Nom" SelectedValuePath="Nom"/>
             </DockPanel>
             <Button Content="Valider" Margin="0,10,0,0" FontSize="20" Click="Button_Click" />

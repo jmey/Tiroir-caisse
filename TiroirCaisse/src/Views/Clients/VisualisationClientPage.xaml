@@ -9,8 +9,8 @@
       Title="VisualisationClientPage" Loaded="Page_Loaded">
 
     <Grid>
-
-        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listClient, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
+        <DockPanel LastChildFill="False" >
+            <DataGrid Name="DataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" ItemsSource="{Binding listClient, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown" MaxHeight="700">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
                 <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
@@ -20,5 +20,7 @@
                 <DataGridTextColumn x:Name="cNumeroPortable" Binding="{Binding NumeroPortable}" Header="Numéro portable" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
+            <Button Content="Exporter CSV" FontSize="20" DockPanel.Dock="Bottom" Name="ExportCSV_Button" Click="ExportCSV_Button_Click" />
+        </DockPanel>
     </Grid>
 </Page>

@@ -24,6 +24,10 @@ namespace TiroirCaisse.Entities
             Nom = nom;
             PrixTTC = prixTTC;
         }
+        public override string ToString()
+        {
+            return Nom;
+        }
 
 
     }

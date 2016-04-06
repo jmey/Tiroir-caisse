@@ -8,7 +8,7 @@ using TiroirCaisse.Utils;
 
 namespace TiroirCaisse.src.Controllers
 {
-    public class ForfaitController
+    public class ForfaitController : Controller
     {
         private ObjectBddTransition transition { get; set; }
         public ForfaitController()

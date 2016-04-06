@@ -9,7 +9,7 @@ using TiroirCaisse.Utils;
 
 namespace TiroirCaisse.src.Controllers
 {
-    public class ProduitController
+    public class ProduitController : Controller
     {
         private ObjectBddTransition transition { get; set; }
         public ProduitController()
@@ -46,6 +46,32 @@ namespace TiroirCaisse.src.Controllers
         {
             int res = transition.deleteCategorieProduitBy("id=" + categorie.Id);
             return res;
+        }
+        public int decrementStockProduit(Produit produit)
+        {
+            int res = transition.updateProduit("nombre_stock = nombre_stock-1", "id=" + produit.Id );
+            return res;
+        }
+        public List<FamilleProduit> getAllFamilleProduit()
+        {
+            List<FamilleProduit> res = transition.getAllFamilleProduitBy("");
+            return res;
+        }
+        public int addFamilleProduit(FamilleProduit famille)
+        {
+            int res = transition.addFamilleProduit(famille);
+            return res;
+        }
+        public int supprimerFamilleProduit(FamilleProduit famille)
+        {
+            int res = transition.deleteFamilleProduitBy("id=" + famille.Id);
+            return res;
+        }
+        public List<CategorieProduit> getAllCategorieProduitByFamille(FamilleProduit famille)
+        {
+            List<CategorieProduit> listCategorie = null;
+            listCategorie = transition.getAllCategorieProduitBy("id_famille_produit=" + famille.Id);
+            return listCategorie;
         }
     }
 

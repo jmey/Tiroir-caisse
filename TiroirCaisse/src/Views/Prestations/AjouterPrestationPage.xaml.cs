@@ -43,7 +43,6 @@ namespace TiroirCaisse.src.Views.Prestations
         {
             this.DataContext = this;
             InitializeComponent();
-            listCategorie = controller.getAllCategoriePrestation();
         }
         private Prestation creerPrestationFromView()
         {
@@ -96,5 +95,14 @@ namespace TiroirCaisse.src.Views.Prestations
             }
         }
 
+        private void comboBoxCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            listCategorie = controller.getAllCategoriePrestation();
+        }
     }
 }

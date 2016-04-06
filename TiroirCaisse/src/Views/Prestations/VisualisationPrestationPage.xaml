@@ -9,15 +9,22 @@
       Title="VisualisationPrestationPage" Loaded="Page_Loaded">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="532*"/>
+            <RowDefinition Height="381*"/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="False" Grid.RowSpan="2">
+            <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listPrestation, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown" Margin="-10,-10,10,10" DockPanel.Dock="TOP" MaxHeight="700">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.5*" />
+                    <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
+                    <DataGridTextColumn x:Name="cPrix" Binding="{Binding PrixTTC}" Header="Prix TTC" Width="*"  />
+                    <DataGridTextColumn x:Name="cType" Binding="{Binding Type}" Header="Type" Width="*"  />
+                    <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie.Nom}" Header="Categorie" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Exporter CSV" FontSize="20" DockPanel.Dock="Bottom" Click="Button_Click"  />
+        </DockPanel>
 
-        <DataGrid Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding listPrestation, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.5*" />
-                <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
-                <DataGridTextColumn x:Name="cPrix" Binding="{Binding PrixTTC}" Header="Prix TTC" Width="*"  />
-                <DataGridTextColumn x:Name="cType" Binding="{Binding Type}" Header="Type" Width="*"  />
-                <DataGridTextColumn x:Name="cCategorie" Binding="{Binding Categorie.Nom}" Header="Categorie" Width="*" />
-            </DataGrid.Columns>
-        </DataGrid>
     </Grid>
 </Page>

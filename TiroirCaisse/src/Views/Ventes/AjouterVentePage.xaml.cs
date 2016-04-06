@@ -25,6 +25,7 @@ namespace TiroirCaisse.src.Views.Ventes
     public partial class AjouterVentePage : Page, INotifyPropertyChanged
     {
         private VenteController controller { get; set; }
+        private ProduitController pController { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         private List<Vendeur> _listVendeurs{ get; set; }
         public List<Vendeur> listVendeurs
@@ -96,11 +97,54 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listItems");
             }
         }
+        private float _PrixTotal { get; set; }
+        public float PrixTotal
+        {
+            get
+            {
+                return _PrixTotal;
+
+            }
+            set
+            {
+                _PrixTotal = value;
+                OnPropertyChanged("PrixTotal");
+            }
+        }
+        private List<CategoriePrestation> _listCategoriePrestation { get; set; }
+        public List<CategoriePrestation> listCategoriePrestation
+        {
+            get
+            {
+                return _listCategoriePrestation;
+
+            }
+            set
+            {
+                _listCategoriePrestation = value;
+                OnPropertyChanged("listCategoriePrestation");
+            }
+        }
+        private List<CategorieProduit> _listCategorieProduit { get; set; }
+        public List<CategorieProduit> listCategorieProduit
+        {
+            get
+            {
+                return _listCategorieProduit;
+
+            }
+            set
+            {
+                _listCategorieProduit = value;
+                OnPropertyChanged("listCategorieProduit");
+            }
+        }
         public AjouterVentePage()
         {
             InitializeComponent();
             this.DataContext = this;
             controller = new VenteController();
+            pController = new ProduitController();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -127,6 +171,7 @@ namespace TiroirCaisse.src.Views.Ventes
             {
                Prestation selectedPrestation = (Prestation)listBox_prestation.SelectedItem;
                 dataGrid_Element.Items.Add(selectedPrestation);
+                PrixTotal += selectedPrestation.PrixTTC;
             }
         }
 
@@ -136,6 +181,75 @@ namespace TiroirCaisse.src.Views.Ventes
             {
                 Produit selectedProduit = (Produit)listBox_produit.SelectedItem;
                 dataGrid_Element.Items.Add(selectedProduit);
+                PrixTotal += selectedProduit.PrixTTC;
+            }
+        }
+
+        private Vente creerVenteFromView()
+        {
+            List<Prestation> listPrestation = new List<Prestation>();
+            List<Produit> listProduit = new List<Produit>();
+            Client client = null;
+            Vendeur vendeur = null;
+            Vente vente = null;
+            if (comboBox_client.SelectedIndex != -1 && comboBox_vendeur.SelectedIndex != -1)
+            {
+                client = listClients[comboBox_client.SelectedIndex];
+                vendeur = listVendeurs[comboBox_vendeur.SelectedIndex];
+            }
+            foreach(Element elem in dataGrid_Element.Items)
+            {
+                if(elem is Prestation)
+                {
+                    listPrestation.Add((Prestation)elem);
+                }
+                else if(elem is Produit)
+                {
+                    listProduit.Add((Produit)elem);
+                }
+            }
+            float prixTotal;
+            if(float.TryParse(textBox_prixTotal.Text, out prixTotal))
+            {
+                if (client != null && vendeur != null)
+                {
+                    string typePaiement = "";
+                    string test = ((ComboBoxItem)typePaiement_comboBox.SelectedItem).Content.ToString();
+                    if (test == "Carte bancaire")
+                        typePaiement = "cb";
+                    else if (test == "Espèces")
+                        typePaiement = "especes";
+                    else if (test == "Chèque")
+                        typePaiement = "cheque";
+                    if (typePaiement != "")
+                        vente = new Vente(prixTotal, client, vendeur, listProduit, listPrestation, typePaiement, DateTime.Now);
+
+                }
+            }
+            return vente;
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Vente vente = creerVenteFromView();
+            if (vente != null && vente.PrixTotal != 0)
+            {
+                int res = controller.ajouterVente(vente);
+                if(res < 2)
+                {
+                    MessageBox.Show("Erreur interne durant l'ajout", "Erreur");
+                }
+                else
+                {
+                    MessageBox.Show("Vente ajouté", "OK");
+                    foreach (Produit p in vente.ListProduit)
+                        pController.decrementStockProduit(p);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Des champs ne sont pas remplies", "Erreur");
             }
         }
     }

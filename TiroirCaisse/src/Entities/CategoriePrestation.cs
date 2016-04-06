@@ -22,5 +22,9 @@ namespace TiroirCaisse.src.Entities
             Id = -1;
             Nom = nom;
         }
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }

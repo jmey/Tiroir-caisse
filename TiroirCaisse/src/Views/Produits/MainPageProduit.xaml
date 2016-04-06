@@ -22,6 +22,12 @@
             <TabItem Header="Visualisation des catégories de produits" >
                 <Frame Name="ContentControlVisualisationCategorieProduit" />
             </TabItem>
+            <TabItem Header="Ajouter une famille de produits" >
+                <Frame Name="ContentControlAjouterFamilleProduit" />
+            </TabItem>
+            <TabItem Header="Visualisation des familles de produits" >
+                <Frame Name="ContentControlVisualisationFamilleProduit" />
+            </TabItem>
         </TabControl>
         <Frame Name="FrameContent" Grid.ColumnSpan="2"/>
     </Grid>

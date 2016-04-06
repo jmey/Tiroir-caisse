@@ -24,6 +24,7 @@ namespace TiroirCaisse.src.Views.Ventes
         {
             InitializeComponent();
             ContentControlAjouterVente.Content = new AjouterVentePage();
+            ContentControlVisualisationVentes.Content = new VisualisationVentePage();
         }
     }
 }

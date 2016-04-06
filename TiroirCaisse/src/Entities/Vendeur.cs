@@ -28,5 +28,9 @@ namespace TiroirCaisse.Entities
             Prenom = prenom;
             TypeContrat = typeContrat;
         }
+        public override string ToString()
+        {
+            return Nom + " " + Prenom;
+        }
     }
 }

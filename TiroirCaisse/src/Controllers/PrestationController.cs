@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using TiroirCaisse.Entities;
 using TiroirCaisse.src.Entities;
 using TiroirCaisse.Utils;
 
 namespace TiroirCaisse.src.Controllers
 {
-    public class PrestationController
+    public class PrestationController : Controller
     {
         private ObjectBddTransition transition { get; set; }
         public PrestationController()
@@ -49,5 +50,6 @@ namespace TiroirCaisse.src.Controllers
             int res = transition.deleteCategorieProduitBy("id=" + categorie.Id);
             return res;
         }
+
     }
 }
