@@ -6,7 +6,63 @@
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Caisse"
       mc:Ignorable="d" 
       d:DesignHeight="913" d:DesignWidth="987"
-      Title="VisualisationCaissePage">
-
-    <Grid/>
+      Title="VisualisationCaissePage" Loaded="Page_Loaded">
+    <Grid>
+        <DockPanel LastChildFill="True" Margin="0,20,0,0" >
+            <StackPanel  Orientation="Horizontal" DockPanel.Dock="Top" Width="auto"  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                <Label x:Name="label" Content="De" FontSize="25"/>
+                <DatePicker Width="200" FontSize="25" Margin="20,0,20,0"/>
+                <Label x:Name="label2" Content="à" FontSize="25"/>
+                <DatePicker Width="200" FontSize="25" Margin="20,0,20,0" />
+            </StackPanel>
+            <StackPanel Margin="0,50,0,0" >
+                <StackPanel Orientation="Horizontal" Width="auto"  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <GroupBox x:Name="groupBox" Header="Carte bancaire" HorizontalAlignment="Left" Height="300"  VerticalAlignment="Top" Width="400">
+                        <GroupBox.Content>
+                            <StackPanel>
+                                <Label x:Name="label3" Content="Montant mis à la caisse : " FontSize="25"/>
+                                <Label x:Name="label5" Content="{Binding montantCBRecu }" FontSize="25" Margin="100,0,0,0" />
+                                <Label x:Name="label4" Content="Montant retiré de la caisse : " FontSize="25"/>
+                                <Label x:Name="label6" Content="{Binding montantCBPris}" FontSize="25" Margin="100,0,0,0" />
+                                <Label x:Name="label8" Content="Sous-montant total : " FontSize="25"/>
+                                <Label x:Name="label7" Content="{Binding montantCBTotal}" FontSize="25" Margin="100,0,0,0" />
+                            </StackPanel>
+                        </GroupBox.Content>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox1" Header="Espèces" HorizontalAlignment="Left" Height="300"  VerticalAlignment="Top" Width="400">
+                        <StackPanel>
+                            <Label x:Name="label9" Content="Montant mis à la caisse : " FontSize="25"/>
+                            <Label x:Name="label10" Content="{Binding montantEspeceRecu }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label11" Content="Montant retiré de la caisse : " FontSize="25"/>
+                            <Label x:Name="label12" Content="{Binding montantEspecePris }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label13" Content="Sous-montant total : " FontSize="25"/>
+                            <Label x:Name="label14" Content="{Binding montantEspeceTotal }" FontSize="25" Margin="100,0,0,0" />
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="auto"  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                    <GroupBox x:Name="groupBox2" Header="Chèque" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
+                        <StackPanel>
+                            <Label x:Name="label15" Content="Montant mis à la caisse : " FontSize="25"/>
+                            <Label x:Name="label16" Content="{Binding montantChequeRecu }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label17" Content="Montant retiré de la caisse : " FontSize="25"/>
+                            <Label x:Name="label18" Content="{Binding montantChequePris }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label19" Content="Sous-montant total : " FontSize="25"/>
+                            <Label x:Name="label20" Content="{Binding montantChequeTotal }" FontSize="25" Margin="100,0,0,0" />
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox3" Header="Total" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
+                        <StackPanel>
+                            <Label x:Name="label21" Content="Montant mis à la caisse : " FontSize="25"/>
+                            <Label x:Name="label22" Content="{Binding montantTotalPris }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label23" Content="Montant retiré de la caisse : " FontSize="25"/>
+                            <Label x:Name="label24" Content="{Binding montantTotalRecu }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label25" Content="Sous-montant total : " FontSize="25"/>
+                            <Label x:Name="label26" Content="{Binding montantTotalTotal }" FontSize="25" Margin="100,0,0,0" />
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
 </Page>

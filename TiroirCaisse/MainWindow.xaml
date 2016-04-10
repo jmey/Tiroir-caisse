@@ -35,7 +35,7 @@
                 <Frame Name="ContentControlVendeurs" />
             </TabItem>
             <TabItem Header="Caisse" Name="Caisse" >
-                <Frame />
+                <Frame Name="ContentControlCaisse" />
             </TabItem>
             <TabItem Header="Autres" Name="Autres" >
                 <Frame Name="ContentControlAutres" />

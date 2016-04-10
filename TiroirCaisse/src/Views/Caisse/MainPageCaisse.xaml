@@ -9,6 +9,15 @@
       Title="MainPageCaisse">
 
     <Grid>
-        
+
+        <TabControl TabStripPlacement="Left"  >
+            <TabItem Header="Visualisation de la caisse" >
+                <Frame Name="ContentControlVisualisationCaisse" />
+            </TabItem>
+            <TabItem Header="Retirer montant de la caisse" >
+                <Frame Name="ContentControlRetirerCaisse" />
+            </TabItem>
+        </TabControl>
+        <Frame Name="FrameContent" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>

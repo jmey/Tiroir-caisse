@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Tiroir-caisse\TiroirCaisse\obj\Debug\
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\
 TiroirCaisse
 none
 false
 DEBUG;TRACE
-D:\Tiroir-caisse\TiroirCaisse\App.xaml
+E:\Tiroir-caisse\TiroirCaisse\App.xaml
 27919051204
 
-57433097781
-20-1979505602
+58935213994
+201304728522
 MainWindow.xaml;src\Views\Caisse\MainPageCaisse.xaml;src\Views\Caisse\VisualisationCaissePage.xaml;src\Views\Clients\AjouterClientPage.xaml;src\Views\Clients\MainPageClient..xaml;src\Views\Clients\VisualisationClientPage.xaml;src\Views\Forfaits\AjouterForfaitPage.xaml;src\Views\Forfaits\MainPageForfait.xaml;src\Views\Forfaits\VisualisationForfaitPage.xaml;src\Views\Prestations\AjouterCategoriePrestationPage.xaml;src\Views\Prestations\AjouterPrestationPage.xaml;src\Views\Prestations\MainPagePrestation.xaml;src\Views\Prestations\VisualisationCategoriePrestationPage.xaml;src\Views\Prestations\VisualisationPrestationPage.xaml;src\Views\Produits\AjouterCategorieProduitPage.xaml;src\Views\Produits\AjouterFamilleProduitPage.xaml;src\Views\Produits\AjouterProduitPage.xaml;src\Views\Produits\MainPageProduit.xaml;src\Views\Produits\VisualisationCategorieProduitPage.xaml;src\Views\Produits\VisualisationFamilleProduitPage.xaml;src\Views\Produits\VisualisationProduitPage.xaml;src\Views\Vendeurs\AjouterVendeurPage.xaml;src\Views\Vendeurs\MainPageVendeur.xaml;src\Views\Vendeurs\VisualisationVendeurPage.xaml;src\Views\Ventes\AjouterVentePage.xaml;src\Views\Ventes\MainPageVente.xaml;src\Views\Ventes\VisualisationVentePage.xaml;
 
 False

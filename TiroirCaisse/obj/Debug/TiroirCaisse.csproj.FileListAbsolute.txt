@@ -161,7 +161,6 @@ E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.Properties.Resources.resour
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csproj.GenerateResource.Cache
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.exe
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.pdb
-E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\MainPageCaisse.g.cs
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\VisualisationCaissePage.g.cs
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\MainPageCaisse.baml
@@ -170,3 +169,12 @@ D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterFamilleProduit
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationFamilleProduitPage.g.cs
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterFamilleProduitPage.baml
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationFamilleProduitPage.baml
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\MainPageCaisse.g.cs
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\VisualisationCaissePage.g.cs
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterFamilleProduitPage.g.cs
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationFamilleProduitPage.g.cs
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\MainPageCaisse.baml
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\VisualisationCaissePage.baml
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterFamilleProduitPage.baml
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationFamilleProduitPage.baml
+E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache

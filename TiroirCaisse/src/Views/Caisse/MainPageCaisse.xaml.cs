@@ -23,6 +23,8 @@ namespace TiroirCaisse.src.Views.Caisse
         public MainPageCaisse()
         {
             InitializeComponent();
+            ContentControlVisualisationCaisse.Content = new VisualisationCaissePage();
+           // ContentControlVisualisationClients.Content = new VisualisationClientPage();
         }
     }
 }

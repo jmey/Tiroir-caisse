@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="src\Controllers\CaisseController.cs" />
     <Compile Include="src\Controllers\ClientController.cs" />
     <Compile Include="src\Controllers\Controller.cs" />
     <Compile Include="src\Controllers\ForfaitController.cs" />
