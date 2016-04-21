@@ -202,8 +202,16 @@ namespace TiroirCaisse.Utils
         public int updateProduit(string setClause, string whereClause)
         {
             int resultat;
-            string query = "UPDATE client SET";
-            if(whereClause != null && whereClause != "")
+            string query = "UPDATE Produit SET ";
+            if (setClause != null && setClause != "")
+            {
+                query += setClause;
+            }
+            else
+            {
+                resultat = 0;
+            }
+            if (whereClause != null && whereClause != "")
             {
                 query += " WHERE " + whereClause;
                 resultat = sqliteAccess.ExecuteComandWOReturn(query);
@@ -557,10 +565,10 @@ namespace TiroirCaisse.Utils
 
         #region Fonctions liées à l'entité MontantCaisse
 
-        public List<MontantCaisse> getAllMontantsCaisseBy(string whereClause)
+        public List<MontantRetireCaisse> getAllMontantsCaisseBy(string whereClause)
         {
-            List<MontantCaisse> listeMontantCaisse = new List<MontantCaisse>();
-            string query = "SELECT * FROM montant_caisse";
+            List<MontantRetireCaisse> listeMontantCaisse = new List<MontantRetireCaisse>();
+            string query = "SELECT * FROM montant_retire_caisse";
             if (whereClause != null && whereClause != "")
             {
                 query += " WHERE " + whereClause;
@@ -569,7 +577,8 @@ namespace TiroirCaisse.Utils
             SQLiteDataReader dataReader = sqliteAccess.ExecuteCommandWReturn(query);
             while (dataReader.Read())
             {
-                //listeMontantCaisse.Add(new MontantCaisse(int.Parse(dataReader["id"].ToString()), dataReader["nom"].ToString()));
+                DateTime date = DateTime.FromBinary(long.Parse(dataReader["date"].ToString()));
+                listeMontantCaisse.Add(new MontantRetireCaisse(int.Parse(dataReader["id"].ToString()), date, float.Parse(dataReader["montant_retire"].ToString()), dataReader["type"].ToString()));
             }
 
             return listeMontantCaisse;
@@ -577,12 +586,28 @@ namespace TiroirCaisse.Utils
 
         public int deleteMontantCaisseBy(string whereClause)
         {
-            return -1;
+            int resultat = 0;
+            string query = "DELETE FROM montant_retire_caisse";
+            if (whereClause != null && whereClause != "")
+            {
+                query += " WHERE " + whereClause;
+                resultat = sqliteAccess.ExecuteComandWOReturn(query);
+            }
+
+            return resultat;
         }
 
-        public int addMontantCaisse(MontantCaisse _montant)
+        public int addMontantCaisse(MontantRetireCaisse _montant)
         {
-            return -1;
+            string query = "INSERT INTO montant_retire_caisse('date', 'montant_retire', 'type') VALUES(";
+            StringBuilder stringBuilder = new StringBuilder(query);
+            stringBuilder.Append(_montant.Date.ToBinary() + ",");
+            stringBuilder.Append(_montant.Montant + ",");
+            stringBuilder.Append("'" + _montant.Type + "'"  + ")");
+
+            int res = sqliteAccess.ExecuteComandWOReturn(stringBuilder.ToString());
+
+            return res;
         }
 
         #endregion

@@ -6,10 +6,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="PathDB" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\Tiroir-caisse\TiroirCaisse\DataBase\TiroirCaisseDB.db</Value>
+      <Value Profile="(Default)">D:\Tiroir-caisse\TiroirCaisse\DataBase\TiroirCaisseDB.db</Value>
     </Setting>
     <Setting Name="PathBackup" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\Tiroir-caisse\TiroirCaisse\DataBase\TiroirCaisseDBTest.db</Value>
+      <Value Profile="(Default)">D:\Tiroir-caisse\TiroirCaisse\DataBase\TiroirCaisseDBTest.db</Value>
     </Setting>
   </Settings>
 </SettingsFile>

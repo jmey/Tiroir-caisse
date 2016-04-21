@@ -71,7 +71,7 @@ namespace TiroirCaisse.src.Views.Produits
                 {
                     selectedCategorie = listCategorie[ComboBoxCategorie.SelectedIndex];
                 }
-                return new Produit(textBoxNom.Text, textBoxType.Text, int.Parse(textBoxNombreStock.Text), int.Parse(textBoxSeuilAlerte.Text), textBoxFournisseur.Text, textBoxReferenceFournisseur.Text, int.Parse(textBoxPrix.Text), int.Parse(textBoxPrixFournisseur.Text), selectedCategorie);
+                return new Produit(textBoxNom.Text, textBoxType.Text, int.Parse(textBoxNombreStock.Text), int.Parse(textBoxSeuilAlerte.Text), textBoxFournisseur.Text, textBoxReferenceFournisseur.Text, float.Parse(textBoxPrix.Text), float.Parse(textBoxPrixFournisseur.Text), selectedCategorie);
             }
             catch
             {

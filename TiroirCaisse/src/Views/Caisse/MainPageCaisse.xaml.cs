@@ -24,7 +24,8 @@ namespace TiroirCaisse.src.Views.Caisse
         {
             InitializeComponent();
             ContentControlVisualisationCaisse.Content = new VisualisationCaissePage();
-           // ContentControlVisualisationClients.Content = new VisualisationClientPage();
+            ContentControlRetirerCaisse.Content = new RetirerMontantCaissePage();
+            ContentControlRetirerCaisseVisualisation.Content = new VisualisationRetirementMontant();
         }
     }
 }

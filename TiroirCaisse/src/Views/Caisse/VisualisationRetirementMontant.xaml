@@ -1,0 +1,26 @@
+﻿<Page x:Class="TiroirCaisse.src.Views.Caisse.VisualisationRetirementMontant"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TiroirCaisse.src.Views.Caisse"
+      mc:Ignorable="d" 
+     d:DesignHeight="913" d:DesignWidth="987"
+      Title="VisualisationRetirementMontant">
+
+    <Grid>
+        <DockPanel LastChildFill="False" >
+            <DataGrid Name="DataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" ItemsSource="{Binding listRetirementCaisse, Mode=TwoWay}" IsReadOnly="True"  MaxHeight="700" KeyDown="DataGrid_KeyDown">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
+                    <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
+                    <DataGridTextColumn x:Name="cPrenom" Binding="{Binding Prenom}" Header="Prenom" Width="*"  />
+                    <DataGridTextColumn x:Name="cDateArrivee" Binding="{Binding DateArrivee}" Header="Date d'arrivee" Width="*" />
+                    <DataGridTextColumn x:Name="cNumeroFixe" Binding="{Binding NumeroFixe}" Header="Numéro fixe" Width="*" />
+                    <DataGridTextColumn x:Name="cNumeroPortable" Binding="{Binding NumeroPortable}" Header="Numéro portable" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Exporter CSV" FontSize="20" DockPanel.Dock="Bottom" Name="ExportCSV_Button" Click="ExportCSV_Button_Click"  />
+        </DockPanel>
+    </Grid>
+</Page>

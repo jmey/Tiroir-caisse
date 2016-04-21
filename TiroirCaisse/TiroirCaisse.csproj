@@ -103,7 +103,7 @@
     <Compile Include="src\Entities\Element.cs" />
     <Compile Include="src\Entities\Prestation.cs" />
     <Compile Include="src\Entities\Produit.cs" />
-    <Compile Include="src\Entities\MontantCaisse.cs" />
+    <Compile Include="src\Entities\MontantRetireCaisse.cs" />
     <Compile Include="src\Entities\Vendeur.cs" />
     <Compile Include="src\Entities\Vente.cs" />
     <Compile Include="src\ExternAccess\SQLiteAccess.cs" />
@@ -113,8 +113,14 @@
     <Compile Include="src\Views\Caisse\MainPageCaisse.xaml.cs">
       <DependentUpon>MainPageCaisse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Views\Caisse\RetirerMontantCaissePage.xaml.cs">
+      <DependentUpon>RetirerMontantCaissePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Views\Caisse\VisualisationCaissePage.xaml.cs">
       <DependentUpon>VisualisationCaissePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Views\Caisse\VisualisationRetirementMontant.xaml.cs">
+      <DependentUpon>VisualisationRetirementMontant.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Views\Clients\AjouterClientPage.xaml.cs">
       <DependentUpon>AjouterClientPage.xaml</DependentUpon>
@@ -204,7 +210,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="src\Views\Caisse\RetirerMontantCaissePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\Views\Caisse\VisualisationCaissePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Views\Caisse\VisualisationRetirementMontant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

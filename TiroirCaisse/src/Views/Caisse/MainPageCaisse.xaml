@@ -17,6 +17,9 @@
             <TabItem Header="Retirer montant de la caisse" >
                 <Frame Name="ContentControlRetirerCaisse" />
             </TabItem>
+            <TabItem Header="Visualisation retirement de la caisse" >
+                <Frame Name="ContentControlRetirerCaisseVisualisation" />
+            </TabItem>
         </TabControl>
         <Frame Name="FrameContent" Grid.ColumnSpan="2"/>
     </Grid>

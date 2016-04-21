@@ -90,7 +90,6 @@ D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\AjouterCategoriePr
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Prestations\VisualisationCategoriePrestationPage.baml
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterCategorieProduitPage.baml
 D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationCategorieProduitPage.baml
-D:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache
 E:\Tiroir-caisse\TiroirCaisse\bin\Debug\TiroirCaisse.exe.config
 E:\Tiroir-caisse\TiroirCaisse\bin\Debug\TiroirCaisse.exe
 E:\Tiroir-caisse\TiroirCaisse\bin\Debug\TiroirCaisse.pdb
@@ -178,3 +177,8 @@ E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\VisualisationCaissePage
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\AjouterFamilleProduitPage.baml
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Produits\VisualisationFamilleProduitPage.baml
 E:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\TiroirCaisse.csprojResolveAssemblyReference.cache
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\RetirerMontantCaissePage.g.cs
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\RetirerMontantCaissePage.baml
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\VisualisationRetirementMontant.g.cs
+D:\Tiroir-caisse\TiroirCaisse\obj\Debug\src\Views\Caisse\VisualisationRetirementMontant.baml

@@ -69,6 +69,7 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listPrestations");
             }
         }
+
         private List<Produit> _listProduits { get; set; }
         public List<Produit> listProduits
         {
@@ -83,6 +84,7 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listProduits");
             }
         }
+
         private List<Element> _listItems { get; set; }
         public List<Element> listItems
         {
@@ -97,6 +99,7 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listItems");
             }
         }
+
         private float _PrixTotal { get; set; }
         public float PrixTotal
         {
@@ -111,6 +114,7 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("PrixTotal");
             }
         }
+
         private List<CategoriePrestation> _listCategoriePrestation { get; set; }
         public List<CategoriePrestation> listCategoriePrestation
         {
@@ -125,6 +129,7 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listCategoriePrestation");
             }
         }
+
         private List<CategorieProduit> _listCategorieProduit { get; set; }
         public List<CategorieProduit> listCategorieProduit
         {
@@ -137,6 +142,20 @@ namespace TiroirCaisse.src.Views.Ventes
             {
                 _listCategorieProduit = value;
                 OnPropertyChanged("listCategorieProduit");
+            }
+        }
+
+        private List<FamilleProduit> _listFamilleProduit { get; set; }
+        public List<FamilleProduit > listFamilleProduit
+        {
+            get
+            {
+                return _listFamilleProduit;
+            }
+            set
+            {
+                _listFamilleProduit = value;
+                OnPropertyChanged("listFamilleProduit");
             }
         }
         public AjouterVentePage()
@@ -153,6 +172,9 @@ namespace TiroirCaisse.src.Views.Ventes
             listClients = controller.getAllClients();
             listPrestations = controller.getAllPrestations();
             listProduits = controller.getAllProduits();
+            listFamilleProduit = controller.getAllFamille();
+            listCategoriePrestation = controller.getAllCategoriePrestation();
+            listCategorieProduit = controller.getAllCategoriePoduit();
 
         }
 
@@ -187,43 +209,47 @@ namespace TiroirCaisse.src.Views.Ventes
 
         private Vente creerVenteFromView()
         {
-            List<Prestation> listPrestation = new List<Prestation>();
-            List<Produit> listProduit = new List<Produit>();
-            Client client = null;
-            Vendeur vendeur = null;
             Vente vente = null;
-            if (comboBox_client.SelectedIndex != -1 && comboBox_vendeur.SelectedIndex != -1)
+            if (typePaiement_comboBox != null && typePaiement_comboBox.SelectedIndex >= 0)
             {
-                client = listClients[comboBox_client.SelectedIndex];
-                vendeur = listVendeurs[comboBox_vendeur.SelectedIndex];
-            }
-            foreach(Element elem in dataGrid_Element.Items)
-            {
-                if(elem is Prestation)
+                List<Prestation> listPrestation = new List<Prestation>();
+                List<Produit> listProduit = new List<Produit>();
+                Client client = null;
+                Vendeur vendeur = null;
+                
+                if (comboBox_client.SelectedIndex != -1 && comboBox_vendeur.SelectedIndex != -1)
                 {
-                    listPrestation.Add((Prestation)elem);
+                    client = listClients[comboBox_client.SelectedIndex];
+                    vendeur = listVendeurs[comboBox_vendeur.SelectedIndex];
                 }
-                else if(elem is Produit)
+                foreach (Element elem in dataGrid_Element.Items)
                 {
-                    listProduit.Add((Produit)elem);
+                    if (elem is Prestation)
+                    {
+                        listPrestation.Add((Prestation)elem);
+                    }
+                    else if (elem is Produit)
+                    {
+                        listProduit.Add((Produit)elem);
+                    }
                 }
-            }
-            float prixTotal;
-            if(float.TryParse(textBox_prixTotal.Text, out prixTotal))
-            {
-                if (client != null && vendeur != null)
+                float prixTotal;
+                if (float.TryParse(textBox_prixTotal.Text, out prixTotal))
                 {
-                    string typePaiement = "";
-                    string test = ((ComboBoxItem)typePaiement_comboBox.SelectedItem).Content.ToString();
-                    if (test == "Carte bancaire")
-                        typePaiement = "cb";
-                    else if (test == "Espèces")
-                        typePaiement = "especes";
-                    else if (test == "Chèque")
-                        typePaiement = "cheque";
-                    if (typePaiement != "")
-                        vente = new Vente(prixTotal, client, vendeur, listProduit, listPrestation, typePaiement, DateTime.Now);
+                    if (client != null && vendeur != null)
+                    {
+                        string typePaiement = "";
+                        string test = ((ComboBoxItem)typePaiement_comboBox.SelectedItem).Content.ToString();
+                        if (test == "Carte bancaire")
+                            typePaiement = "cb";
+                        else if (test == "Espèces")
+                            typePaiement = "especes";
+                        else if (test == "Chèque")
+                            typePaiement = "cheque";
+                        if (typePaiement != "")
+                            vente = new Vente(prixTotal, client, vendeur, listProduit, listPrestation, typePaiement, DateTime.Now);
 
+                    }
                 }
             }
             return vente;
@@ -232,8 +258,9 @@ namespace TiroirCaisse.src.Views.Ventes
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             Vente vente = creerVenteFromView();
-            if (vente != null && vente.PrixTotal != 0)
+            if (vente != null && vente.PrixTotal >= 0)
             {
                 int res = controller.ajouterVente(vente);
                 if(res < 2)
@@ -250,6 +277,49 @@ namespace TiroirCaisse.src.Views.Ventes
             else
             {
                 MessageBox.Show("Des champs ne sont pas remplies", "Erreur");
+            }
+        }
+
+        private void comboBox_categoriePrestation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(comboBox_categoriePrestation.SelectedIndex>=0)
+            {
+                CategoriePrestation selectedCategoriePrestation = listCategoriePrestation[comboBox_categoriePrestation.SelectedIndex];
+                listPrestations = controller.getPrestationByCategorie(selectedCategoriePrestation);
+            }
+           
+        }
+
+        private void comboBoxFamilleProduit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBoxFamilleProduit.SelectedIndex >= 0)
+            {
+                FamilleProduit selectedFamilleProduit = listFamilleProduit[comboBoxFamilleProduit.SelectedIndex];
+                listCategorieProduit = controller.getCategorieProduitByFamille(selectedFamilleProduit);
+                listProduits = controller.getProduitByFamille(selectedFamilleProduit);
+            }
+        }
+
+        private void comboBoxCategorieProduit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBoxCategorieProduit.SelectedIndex >= 0)
+            {
+                CategorieProduit selectedCategorieProduit = listCategorieProduit[comboBoxCategorieProduit.SelectedIndex];
+                listProduits = controller.getProduitByCategorie(selectedCategorieProduit);
+            }
+        }
+
+        private void dataGrid_Element_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                Element selectedElement = dataGrid_Element.SelectedItem as Element;
+                if (selectedElement != null)
+                {
+                    PrixTotal -= selectedElement.PrixTTC;
+                    dataGrid_Element.Items.Remove(selectedElement);
+                }
+                
             }
         }
     }

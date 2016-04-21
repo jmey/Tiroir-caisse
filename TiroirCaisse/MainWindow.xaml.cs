@@ -21,6 +21,8 @@ using TiroirCaisse.src.Views.Vendeurs;
 using TiroirCaisse.src.Views.Produits;
 using TiroirCaisse.src.Views.Ventes;
 using TiroirCaisse.src.Views.Caisse;
+using System.Threading;
+using System.Globalization;
 
 namespace TiroirCaisse
 {
@@ -32,7 +34,8 @@ namespace TiroirCaisse
 
         public MainWindow() 
         {
-           
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
+
             InitializeComponent();
             ContentControlClients.Content = new MainPageClient();
             ContentControlPrestations.Content = new MainPagePrestation();

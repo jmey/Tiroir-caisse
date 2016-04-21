@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TiroirCaisse.src.Controllers;
 
 namespace TiroirCaisse.src.Views.Caisse
 {
@@ -22,6 +23,8 @@ namespace TiroirCaisse.src.Views.Caisse
     public partial class VisualisationCaissePage : Page, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private bool loadFinish;
+        private CaisseController controller { get; set; }
 
         private string _montantCBRecu { get; set; }
         private string _montantCBPris { get; set; }
@@ -38,6 +41,9 @@ namespace TiroirCaisse.src.Views.Caisse
         private string _montantTotalRecu { get; set; }
         private string _montantTotalPris { get; set; }
         private string _montantTotalTotal { get; set; }
+
+        private DateTime _dateDebut { get; set; }
+        private DateTime _dateFin { get; set; }
 
         public string montantCBRecu 
         {
@@ -95,6 +101,34 @@ namespace TiroirCaisse.src.Views.Caisse
             }
         }
 
+        public string montantChequeRecu
+        {
+            get { return _montantChequeRecu; }
+            set
+            {
+                _montantChequeRecu = value;
+                OnPropertyChanged("montantChequeRecu");
+            }
+        }
+        public string montantChequePris
+        {
+            get { return _montantChequePris; }
+            set
+            {
+                _montantChequePris = value;
+                OnPropertyChanged("montantChequePris");
+            }
+        }
+        public string montantChequeTotal
+        {
+            get { return _montantChequeTotal; }
+            set
+            {
+                _montantChequeTotal = value;
+                OnPropertyChanged("montantChequeTotal");
+            }
+        }
+
         public string montantTotalRecu
         {
             get { return _montantTotalRecu; }
@@ -123,10 +157,34 @@ namespace TiroirCaisse.src.Views.Caisse
             }
         }
 
+        public DateTime dateDebut
+        {
+            get { return _dateDebut; }
+            set
+            {
+                _dateDebut = value;
+                OnPropertyChanged("dateDebut");
+            }
+        }
+
+        public DateTime dateFin
+        {
+            get { return _dateFin; }
+            set
+            {
+                _dateFin = value;
+                _dateFin = _dateFin.AddHours(23).AddMinutes(59).AddSeconds(59);
+                OnPropertyChanged("dateFin");
+            }
+        }
+
         public VisualisationCaissePage()
         {
-
+            loadFinish = false;
+            controller = new CaisseController();
+            this.DataContext = this;
             InitializeComponent();
+            
         }
 
         protected void OnPropertyChanged(string name)
@@ -140,7 +198,31 @@ namespace TiroirCaisse.src.Views.Caisse
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-           
+            dateDebut = DateTime.Now;
+            dateFin = DateTime.Now;
+            datePickerDebut.Text = DateTime.Now.ToLongDateString();
+            datePickerFin.Text = DateTime.Now.ToLongDateString();
+            datePickerFin.DisplayDateEnd = DateTime.Today;
+            datePickerDebut.DisplayDateEnd = DateTime.Today;
+            loadFinish = true;
+            MajValeur();
         }
+
+
+        private void datePickerDebut_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MajValeur();
+        }
+        private void MajValeur()
+        {
+            if (loadFinish)
+            {
+                montantCBRecu = controller.getMontantRecuBetweenDate("cb", dateDebut, dateFin).ToString();
+                montantEspeceRecu = controller.getMontantRecuBetweenDate("espece", dateDebut, dateFin).ToString();
+                montantChequeRecu = controller.getMontantRecuBetweenDate("cheque", dateDebut, dateFin).ToString();
+                montantTotalRecu = (float.Parse(montantCBRecu) + float.Parse(montantEspeceRecu) + float.Parse(montantChequeRecu)).ToString();
+            }
+        }
+
     }
 }

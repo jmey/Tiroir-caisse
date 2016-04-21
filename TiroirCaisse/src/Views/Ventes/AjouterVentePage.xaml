@@ -18,7 +18,7 @@
             <StackPanel Orientation="Vertical" Width="300" >
                 <DockPanel LastChildFill="False" Margin="0,20,0,20" >
                     <Label  Content="Vendeur" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                    <ComboBox Width="200" Text="123" DockPanel.Dock="Right" FontSize="20" ItemsSource="{Binding listVendeurs}"  DisplayMemberPath="Nom" Name="comboBox_vendeur" IsEditable="True" />
+                    <ComboBox Width="200" Text="123" DockPanel.Dock="Right" FontSize="20" ItemsSource="{Binding listVendeurs}"  DisplayMemberPath="Prenom" Name="comboBox_vendeur" IsEditable="True" />
                 </DockPanel>
                 <DockPanel LastChildFill="False" Margin="0,20,0,20">
                     <Label Content="Client" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
@@ -26,30 +26,34 @@
                 </DockPanel>
             </StackPanel>
             <DockPanel LastChildFill="False">
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="150,0,0,0">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
                     <StackPanel Orientation="Vertical">
                         <Label Content="Catégories Prestation"  FontSize="20" FontWeight="Bold" />
-                        <ComboBox ItemsSource="{Binding listCategoriePrestation}" />
+                        <ComboBox ItemsSource="{Binding listCategoriePrestation}" Name="comboBox_categoriePrestation" SelectionChanged="comboBox_categoriePrestation_SelectionChanged" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
                         <Label Content="Prestations"  FontSize="20" FontWeight="Bold" />
-                        <ListBox x:Name="listBox_prestation" Width="300" Height="150"  FontSize="20" Margin="0,10,10,0" ItemsSource="{Binding listPrestations}" DisplayMemberPath="Nom" MouseDoubleClick="ListBoxPrestation_MouseDoubleClick" />
+                        <ListBox x:Name="listBox_prestation" Width="180" Height="150"   Margin="0,10,10,0" ItemsSource="{Binding listPrestations}" DisplayMemberPath="Nom" MouseDoubleClick="ListBoxPrestation_MouseDoubleClick" />
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="0,0,0,150">
                     <StackPanel Orientation="Vertical">
+                        <Label Content="Familles Produit"  FontSize="20" FontWeight="Bold" />
+                        <ComboBox ItemsSource="{Binding listFamilleProduit}" Name="comboBoxFamilleProduit" SelectionChanged="comboBoxFamilleProduit_SelectionChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
                         <Label Content="Catégories Produit"  FontSize="20" FontWeight="Bold" />
-                        <ComboBox ItemsSource="{Binding listCategorieProduit}" />
+                        <ComboBox ItemsSource="{Binding listCategorieProduit}" Name="comboBoxCategorieProduit" SelectionChanged="comboBoxCategorieProduit_SelectionChanged" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical"  >
                         <Label Content="Produits"  FontSize="20" FontWeight="Bold" />
-                        <ListBox Width="300" Height="150" Margin="10,10,0,0" FontSize="20"  ItemsSource="{Binding listProduits}" DisplayMemberPath="Nom" Name="listBox_produit" MouseDoubleClick="ListBoxProduit_MouseDoubleClick" />
+                        <ListBox Width="180" Height="150" Margin="10,10,0,0"  ItemsSource="{Binding listProduits}" DisplayMemberPath="Nom" Name="listBox_produit" MouseDoubleClick="ListBoxProduit_MouseDoubleClick" />
                     </StackPanel>
                 </StackPanel>
             </DockPanel>
         </StackPanel>
         
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding listItems, Mode=TwoWay}" IsReadOnly="True" Name="dataGrid_Element" MaxHeight="250" Margin="0,0,0,6">
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding listItems, Mode=TwoWay}" IsReadOnly="True" Name="dataGrid_Element" MaxHeight="250" Margin="0,0,0,6" KeyDown="dataGrid_Element_KeyDown">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cType" Binding="{Binding Nom}" Header="Type" Width="0.5*" />
                 <DataGridTextColumn x:Name="cNom" Binding="{Binding Type}" Header="Nom" Width="0.5*" />

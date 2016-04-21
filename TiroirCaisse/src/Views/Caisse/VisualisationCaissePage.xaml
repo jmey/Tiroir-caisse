@@ -11,9 +11,9 @@
         <DockPanel LastChildFill="True" Margin="0,20,0,0" >
             <StackPanel  Orientation="Horizontal" DockPanel.Dock="Top" Width="auto"  VerticalAlignment="Top" HorizontalAlignment="Center" >
                 <Label x:Name="label" Content="De" FontSize="25"/>
-                <DatePicker Width="200" FontSize="25" Margin="20,0,20,0"/>
+                <DatePicker Name="datePickerDebut" Width="200" FontSize="25" Margin="20,0,20,0" SelectedDate="{Binding dateDebut}" SelectedDateChanged="datePickerDebut_SelectedDateChanged"/>
                 <Label x:Name="label2" Content="à" FontSize="25"/>
-                <DatePicker Width="200" FontSize="25" Margin="20,0,20,0" />
+                <DatePicker Name="datePickerFin" Width="200" FontSize="25" Margin="20,0,20,0" SelectedDate="{Binding dateFin}" SelectedDateChanged="datePickerDebut_SelectedDateChanged" />
             </StackPanel>
             <StackPanel Margin="0,50,0,0" >
                 <StackPanel Orientation="Horizontal" Width="auto"  VerticalAlignment="Top" HorizontalAlignment="Center" >
@@ -54,9 +54,9 @@
                     <GroupBox x:Name="groupBox3" Header="Total" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
                         <StackPanel>
                             <Label x:Name="label21" Content="Montant mis à la caisse : " FontSize="25"/>
-                            <Label x:Name="label22" Content="{Binding montantTotalPris }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label22" Content="{Binding montantTotalRecu }" FontSize="25" Margin="100,0,0,0" />
                             <Label x:Name="label23" Content="Montant retiré de la caisse : " FontSize="25"/>
-                            <Label x:Name="label24" Content="{Binding montantTotalRecu }" FontSize="25" Margin="100,0,0,0" />
+                            <Label x:Name="label24" Content="{Binding montantTotalPris }" FontSize="25" Margin="100,0,0,0" />
                             <Label x:Name="label25" Content="Sous-montant total : " FontSize="25"/>
                             <Label x:Name="label26" Content="{Binding montantTotalTotal }" FontSize="25" Margin="100,0,0,0" />
                         </StackPanel>
