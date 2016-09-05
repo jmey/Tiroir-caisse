@@ -32,5 +32,10 @@ namespace TiroirCaisse.src.Controllers
             return res;
         }
 
+        internal bool updateClient(Client client)
+        {
+            bool res = transition.updateClient(client);
+            return res;
+        }
     }
 }

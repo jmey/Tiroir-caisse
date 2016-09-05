@@ -12,23 +12,39 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,50,0,0">
             <DockPanel LastChildFill="False" >
                 <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxNom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <TextBox x:Name="textBoxNom" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
                 <Label x:Name="label2" Content="Prénom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxPrenom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <TextBox x:Name="textBoxPrenom" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
                 <Label x:Name="label3" Content="Date d'arrivée" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
                 <DatePicker Width="200" DockPanel.Dock="Right" FontSize="20" Name="datePickerDateArrivee" />
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
-                <Label x:Name="label4" Content="Téléphone fixe" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxTéléphoneFixe" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <Label x:Name="label4" Content="Date de naissance" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <DatePicker Width="200" DockPanel.Dock="Right" FontSize="20" Name="datePickerDateNaissance" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label7" Content="Téléphone fixe" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxTéléphoneFixe" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
                 <Label x:Name="label5" Content="Téléphone portable" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxTelephonePortable" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <TextBox x:Name="textBoxTelephonePortable" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label6" Content="Adresse" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxAdresse" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label60" Content="Mail" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxMail" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label8" Content="Commentaires" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"  x:Name="textBlockCommentaire" Width="200" Text="" DockPanel.Dock="Right" FontSize="20" Height="200"/>
             </DockPanel>
             <Button Content="Valider" Margin="0,10,0,0" FontSize="20" Click="Button_Click" />
         </StackPanel>

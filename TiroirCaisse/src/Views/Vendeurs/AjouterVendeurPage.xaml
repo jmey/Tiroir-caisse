@@ -11,15 +11,15 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,50,0,0">
             <DockPanel LastChildFill="False" >
                 <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxNom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <TextBox x:Name="textBoxNom" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
                 <Label x:Name="label2" Content="Prénom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxPrenom" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <TextBox x:Name="textBoxPrenom" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <DockPanel LastChildFill="False" Margin="0,10,0,0">
                 <Label x:Name="label3" Content="Type de contrat" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
-                <TextBox x:Name="textBoxTypeContrat" Width="200" Text="toto" DockPanel.Dock="Right" FontSize="20"/>
+                <TextBox x:Name="textBoxTypeContrat" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
             </DockPanel>
             <Button Content="Valider" Margin="0,10,0,0" FontSize="20" Click="Button_Click" />
         </StackPanel>

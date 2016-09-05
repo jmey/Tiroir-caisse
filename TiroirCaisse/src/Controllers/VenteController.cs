@@ -100,5 +100,13 @@ namespace TiroirCaisse.src.Controllers
             List<CategorieProduit> resultat = transition.getAllCategorieProduitBy("id_famille_produit=" + selectedFamilleProduit.Id);
             return resultat;
         }
+
+        public void viderFidelite(Client client)
+        {
+            client.Fidelite = 0;
+            transition.updateClient(client);
+        }
+
+        
     }
 }

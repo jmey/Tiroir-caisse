@@ -73,6 +73,17 @@ namespace TiroirCaisse.src.Controllers
             listCategorie = transition.getAllCategorieProduitBy("id_famille_produit=" + famille.Id);
             return listCategorie;
         }
+        public List<Produit> getProduitNecessaire()
+        {
+            List<Produit> res;
+            res = transition.getAllProduitsBy("nombre_stock<=seuil_alerte");
+            return res;
+        }
+
+        public bool updateProduit(Produit produit)
+        {
+            return transition.updateProduit(produit);
+        }
     }
 
 }

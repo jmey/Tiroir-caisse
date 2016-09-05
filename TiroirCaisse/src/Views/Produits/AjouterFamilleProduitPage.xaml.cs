@@ -36,6 +36,7 @@ namespace TiroirCaisse.src.Views.Produits
                 if (res == 1)
                 {
                     MessageBox.Show("La catégorie a été rajouté");
+                    textBoxNom.Text = "";
                 }
                 else
                 {

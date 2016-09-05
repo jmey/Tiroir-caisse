@@ -47,6 +47,8 @@ namespace TiroirCaisse.src.Views.Caisse
                 if(res == 1)
                 {
                     MessageBox.Show("Entrée effectuée avec succès", "OK");
+                    textBoxMontant.Text = "";
+                    textBoxType.Text = "";
                 }
                 else
                 {

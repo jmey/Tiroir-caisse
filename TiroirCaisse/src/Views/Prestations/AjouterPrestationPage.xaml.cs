@@ -74,6 +74,9 @@ namespace TiroirCaisse.src.Views.Prestations
                 if (res == 1)
                 {
                     MessageBox.Show("Le produit a été rajouté");
+                    textBoxNom.Text = "";
+                    textBoxPrix.Text = "";
+                    textBoxTypePrestation.Text = "";
                 }
                 else
                 {

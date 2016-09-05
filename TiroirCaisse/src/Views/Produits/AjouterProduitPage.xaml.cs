@@ -90,6 +90,16 @@ namespace TiroirCaisse.src.Views.Produits
                 if (res == 1)
                 {
                     MessageBox.Show("Le produit a été rajouté");
+                    textBoxNom.Text = "";
+                    textBoxNombreStock.Text = "";
+                    textBoxPrix.Text = "";
+                    textBoxPrixFournisseur.Text = "";
+                    textBoxReferenceFournisseur.Text = "";
+                    textBoxFournisseur.Text = "";
+                    textBoxSeuilAlerte.Text = "";
+                    textBoxType.Text = "";
+                    ComboBoxCategorie.Text = "";
+                    ComboBoxFamille.Text = "";
                 }
                 else
                 {
@@ -107,6 +117,7 @@ namespace TiroirCaisse.src.Views.Produits
             listCategorie = ProduitController.getAllCategorieProduit();
             listFamille = ProduitController.getAllFamilleProduit();
         }
+
         protected void OnPropertyChanged(string name)
         {
 
@@ -119,8 +130,16 @@ namespace TiroirCaisse.src.Views.Produits
 
         private void ComboBoxFamille_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FamilleProduit selectedFamille = listFamille[ComboBoxFamille.SelectedIndex];
-            listCategorie = ProduitController.getAllCategorieProduitByFamille(selectedFamille);
+            if (ComboBoxFamille.SelectedIndex >= 0)
+            {
+                FamilleProduit selectedFamille = listFamille[ComboBoxFamille.SelectedIndex];
+                listCategorie = ProduitController.getAllCategorieProduitByFamille(selectedFamille);
+            }
+        }
+
+        private void textBoxNom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

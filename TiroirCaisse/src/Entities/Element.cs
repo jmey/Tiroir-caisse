@@ -8,9 +8,9 @@ namespace TiroirCaisse.src.Entities
 {
     public class Element
     {
-        public int Id { get; protected set; }
-        public string Nom { get; protected set; }
-        public float PrixTTC { get; protected set; }
-        public string Type { get; protected set; }
+        public int Id { get; set; }
+        public string Nom { get;  set; }
+        public float PrixTTC { get; set; }
+        public string Type { get;  set; }
     }
 }

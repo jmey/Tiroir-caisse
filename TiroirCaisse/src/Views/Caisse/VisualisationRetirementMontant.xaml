@@ -6,18 +6,17 @@
       xmlns:local="clr-namespace:TiroirCaisse.src.Views.Caisse"
       mc:Ignorable="d" 
      d:DesignHeight="913" d:DesignWidth="987"
-      Title="VisualisationRetirementMontant">
+      Title="VisualisationRetirementMontant" Loaded="Page_Loaded">
 
     <Grid>
         <DockPanel LastChildFill="False" >
-            <DataGrid Name="DataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" ItemsSource="{Binding listRetirementCaisse, Mode=TwoWay}" IsReadOnly="True"  MaxHeight="700" KeyDown="DataGrid_KeyDown">
+            <DataGrid Name="DataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" ItemsSource="{Binding listMontantRetireCaisse, Mode=TwoWay}" IsReadOnly="True"  MaxHeight="700" KeyDown="DataGrid_KeyDown">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
-                    <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
-                    <DataGridTextColumn x:Name="cPrenom" Binding="{Binding Prenom}" Header="Prenom" Width="*"  />
-                    <DataGridTextColumn x:Name="cDateArrivee" Binding="{Binding DateArrivee}" Header="Date d'arrivee" Width="*" />
-                    <DataGridTextColumn x:Name="cNumeroFixe" Binding="{Binding NumeroFixe}" Header="Numéro fixe" Width="*" />
-                    <DataGridTextColumn x:Name="cNumeroPortable" Binding="{Binding NumeroPortable}" Header="Numéro portable" Width="*" />
+                    <DataGridTextColumn x:Name="cName" Binding="{Binding Date}" Header="Type retiré" Width="*"  />
+                    <DataGridTextColumn x:Name="cPrenom" Binding="{Binding Montant}" Header="Montant" Width="*"  />
+                    <DataGridTextColumn x:Name="cDateArrivee" Binding="{Binding Type}" Header="Date d'arrivee" Width="*" />
+                  
                 </DataGrid.Columns>
             </DataGrid>
             <Button Content="Exporter CSV" FontSize="20" DockPanel.Dock="Bottom" Name="ExportCSV_Button" Click="ExportCSV_Button_Click"  />

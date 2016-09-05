@@ -49,6 +49,10 @@ namespace TiroirCaisse.src.Views.Produits
         private CategorieProduit creerCategorieFromView()
         {
             CategorieProduit res = null;
+            if(comboBox_famille.SelectedIndex < 0)
+            {
+                return null;
+            }
             FamilleProduit famille = listFamille[comboBox_famille.SelectedIndex];
             if (famille != null)
             {
@@ -71,6 +75,8 @@ namespace TiroirCaisse.src.Views.Produits
                 if (res == 1)
                 {
                     MessageBox.Show("La catégorie a été rajouté");
+                    textBoxNom.Text = "";
+                    comboBox_famille.Text = "";
                 }
                 else
                 {

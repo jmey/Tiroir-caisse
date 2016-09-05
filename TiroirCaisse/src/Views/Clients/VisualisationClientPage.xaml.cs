@@ -43,7 +43,7 @@ namespace TiroirCaisse.src.Views.Clients
             clientController = new ClientController();
             
             InitializeComponent();
-            DataGrid.DataContext = this;
+            dataGrid.DataContext = this;
             
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ namespace TiroirCaisse.src.Views.Clients
             {
                 if (MessageBox.Show("Etes vous sûr de supprimer cet élement ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    Client selectedClient = DataGrid.SelectedItem as Client;
+                    Client selectedClient = dataGrid.SelectedItem as Client;
                     int res = clientController.supprimerClient(selectedClient);
                     if(res==1)
                     {
@@ -93,6 +93,24 @@ namespace TiroirCaisse.src.Views.Clients
             }
         }
 
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGrid.SelectedIndex >= 0)
+            {
+                Client selectedItem = listClient[dataGrid.SelectedIndex];
+                if (selectedItem != null)
+                {
+                    ModifierClientWindow modificationwindow = new ModifierClientWindow(selectedItem);
+                    modificationwindow.Show();
+                    modificationwindow.Activate();
+                    modificationwindow.Closed += update;    
+                }
+            }
+        }
+        public void update(object sender, EventArgs e)
+        {
+            listClient = clientController.getAllClients();
+        }
 
     }
 }

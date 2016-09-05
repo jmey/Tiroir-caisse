@@ -1,0 +1,42 @@
+﻿<Window x:Class="TiroirCaisse.src.Views.Clients.ModifierClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TiroirCaisse.src.Views.Clients"
+        mc:Ignorable="d"
+        Title="Modification" Height="495.837" Width="513.529">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="50,50,0,0">
+            <DockPanel LastChildFill="False" >
+                <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxNom" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label2" Content="Prénom" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxPrenom" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label3" Content="Date d'arrivée" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <DatePicker Width="200" DockPanel.Dock="Right" FontSize="20" Name="datePickerDateArrivee" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label4" Content="Téléphone fixe" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxTéléphoneFixe" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label5" Content="Téléphone portable" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxTelephonePortable" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label6" Content="Adresse" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <TextBox x:Name="textBoxAdresse" Width="200" Text="" DockPanel.Dock="Right" FontSize="20"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="0,10,0,0">
+                <Label x:Name="label7" Content="Date de naissance" HorizontalAlignment="Left" DockPanel.Dock="Left" FontSize="20"/>
+                <DatePicker Width="200" DockPanel.Dock="Right" FontSize="20" Name="datePickerDateNaissance" />
+            </DockPanel>
+            <Button Content="Valider" Margin="0,10,0,0" FontSize="20" Click="Button_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

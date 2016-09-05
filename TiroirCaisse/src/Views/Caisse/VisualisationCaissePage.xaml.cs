@@ -134,7 +134,7 @@ namespace TiroirCaisse.src.Views.Caisse
             get { return _montantTotalRecu; }
             set
             {
-                _montantCBRecu = value;
+                _montantTotalRecu = value;
                 OnPropertyChanged("montantTotalRecu");
             }
         }
@@ -221,6 +221,16 @@ namespace TiroirCaisse.src.Views.Caisse
                 montantEspeceRecu = controller.getMontantRecuBetweenDate("espece", dateDebut, dateFin).ToString();
                 montantChequeRecu = controller.getMontantRecuBetweenDate("cheque", dateDebut, dateFin).ToString();
                 montantTotalRecu = (float.Parse(montantCBRecu) + float.Parse(montantEspeceRecu) + float.Parse(montantChequeRecu)).ToString();
+
+                montantCBPris = controller.getMontantRetireBetweenDate("cb", dateDebut, dateFin).ToString();
+                montantEspecePris = controller.getMontantRetireBetweenDate("espece", dateDebut, dateFin).ToString();
+                montantChequePris = controller.getMontantRetireBetweenDate("cheque", dateDebut, dateFin).ToString();
+                montantTotalPris = (float.Parse(montantCBPris) + float.Parse(montantEspecePris) + float.Parse(montantChequePris)).ToString();
+
+                montantCBTotal = (float.Parse(montantCBRecu) - float.Parse(montantCBPris)).ToString();
+                montantEspeceTotal = (float.Parse(montantEspeceRecu) - float.Parse(montantEspecePris)).ToString();
+                montantChequeTotal = (float.Parse(montantChequeRecu) - float.Parse(montantChequePris)).ToString();
+                montantTotalTotal = (float.Parse(montantCBTotal) + float.Parse(montantEspeceTotal) + float.Parse(montantChequeTotal)).ToString();
             }
         }
 

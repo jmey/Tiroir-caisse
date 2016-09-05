@@ -52,6 +52,8 @@ namespace TiroirCaisse.src.Views.Forfaits
                 if (res == 1)
                 {
                     MessageBox.Show("Le forfait a été rajouté");
+                    textBoxNom.Text = "";
+                    textBoxPrixTTC.Text = "";
                 }
                 else
                 {

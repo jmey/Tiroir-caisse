@@ -23,6 +23,8 @@ using TiroirCaisse.src.Views.Ventes;
 using TiroirCaisse.src.Views.Caisse;
 using System.Threading;
 using System.Globalization;
+using TiroirCaisse.src.Controllers;
+using TiroirCaisse.Entities;
 
 namespace TiroirCaisse
 {
@@ -34,8 +36,10 @@ namespace TiroirCaisse
 
         public MainWindow() 
         {
+            // pour la conversion de float
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
 
+           
             InitializeComponent();
             ContentControlClients.Content = new MainPageClient();
             ContentControlPrestations.Content = new MainPagePrestation();
@@ -43,6 +47,16 @@ namespace TiroirCaisse
             ContentControlProduits.Content = new MainPageProduit();
             ContentControlVentes.Content = new MainPageVente();
             ContentControlCaisse.Content = new MainPageCaisse();
+
+            ProduitController produitController = new ProduitController();
+            List<Produit> produitsNecessaires = produitController.getProduitNecessaire();
+            string msg = "Les produits ci dessous sont à commander : \n";
+            foreach (Produit produit in produitsNecessaires)
+            {
+                msg += produit.Nom + "\n";
+            }
+            if(produitsNecessaires.Count > 0)
+                MessageBox.Show(msg, "Alerte");
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)

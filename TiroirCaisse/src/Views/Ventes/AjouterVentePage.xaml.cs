@@ -24,6 +24,7 @@ namespace TiroirCaisse.src.Views.Ventes
     /// </summary>
     public partial class AjouterVentePage : Page, INotifyPropertyChanged
     {
+        private const double tauxFidelite = 0.02;
         private VenteController controller { get; set; }
         private ProduitController pController { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -158,6 +159,20 @@ namespace TiroirCaisse.src.Views.Ventes
                 OnPropertyChanged("listFamilleProduit");
             }
         }
+        private float _fidelite { get; set; }
+        public float fidelite
+        {
+            get
+            {
+                return _fidelite;
+            }
+            set
+            {
+                _fidelite = value;
+                OnPropertyChanged("fidelite");
+            }
+        }
+
         public AjouterVentePage()
         {
             InitializeComponent();
@@ -169,12 +184,19 @@ namespace TiroirCaisse.src.Views.Ventes
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             listVendeurs = controller.getAllVendeurs();
+            listVendeurs = listVendeurs.OrderBy(u => u.Prenom).ToList();
             listClients = controller.getAllClients();
+            listClients = listClients.OrderBy(u => u.Nom).ThenBy(u => u.Prenom).ToList();
             listPrestations = controller.getAllPrestations();
+            listPrestations = listPrestations.OrderBy(u => u.Nom).ToList();
             listProduits = controller.getAllProduits();
+            listProduits = listProduits.OrderBy(u => u.Nom).ToList();
             listFamilleProduit = controller.getAllFamille();
+            listFamilleProduit = listFamilleProduit.OrderBy(u => u.Nom).ToList();
             listCategoriePrestation = controller.getAllCategoriePrestation();
+            listCategoriePrestation = listCategoriePrestation.OrderBy(u => u.Nom).ToList();
             listCategorieProduit = controller.getAllCategoriePoduit();
+            listCategorieProduit = listCategorieProduit.OrderBy(u => u.Nom).ToList();
 
         }
 
@@ -251,6 +273,8 @@ namespace TiroirCaisse.src.Views.Ventes
 
                     }
                 }
+                if(utiliserFideliteCheckBox.IsChecked == true)
+                    controller.viderFidelite(client);
             }
             return vente;
         }
@@ -270,8 +294,33 @@ namespace TiroirCaisse.src.Views.Ventes
                 else
                 {
                     MessageBox.Show("Vente ajouté", "OK");
+                    double fideliteAMettre = 0;
                     foreach (Produit p in vente.ListProduit)
+                    {
+                        fideliteAMettre += tauxFidelite * p.PrixTTC;
                         pController.decrementStockProduit(p);
+                    }
+                    foreach (Prestation p in vente.ListPrestation)
+                    {
+                        fideliteAMettre += tauxFidelite * p.PrixTTC;
+                    }
+                    listClients[comboBox_client.SelectedIndex].Fidelite = (float)fideliteAMettre;
+                    ClientController clientController = new ClientController();
+                    clientController.updateClient(listClients[comboBox_client.SelectedIndex]);
+                    utiliserFideliteCheckBox.IsChecked = false;
+                    comboBoxCategorieProduit.Text = "";
+                    comboBoxFamilleProduit.Text = "";
+                    comboBox_categoriePrestation.Text = "";
+                    comboBox_client.Text = "";
+                    comboBox_vendeur.Text = "";
+                    textBox_fidelite.Text = "";
+                    textBox_prixTotal.Text = "";
+                    PrixTotal = 0;
+                    fidelite = 0;
+                    listBox_prestation.SelectedIndex = -1;
+                    listBox_produit.SelectedIndex = -1;
+                    dataGrid_Element.Items.Clear();
+                    
                 }
             }
             else
@@ -321,6 +370,26 @@ namespace TiroirCaisse.src.Views.Ventes
                 }
                 
             }
+        }
+
+        private void comboBox_client_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(comboBox_client.SelectedIndex >=0)
+                fidelite = listClients[comboBox_client.SelectedIndex].Fidelite;
+        }
+
+        private void utiliserFideliteCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            PrixTotal -= fidelite;
+            if(PrixTotal < 0)
+            {
+                PrixTotal = 0;
+            }
+        }
+
+        private void utiliserFideliteCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            PrixTotal += fidelite;
         }
     }
 }

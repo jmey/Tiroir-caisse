@@ -49,6 +49,7 @@ namespace TiroirCaisse.src.Views.Prestations
                 if (res == 1)
                 {
                     MessageBox.Show("L'utilisateur a été rajouté");
+                    textBoxNom.Text = "";
                 }
                 else
                 {

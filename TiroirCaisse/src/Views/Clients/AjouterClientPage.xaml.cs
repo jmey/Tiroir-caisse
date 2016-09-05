@@ -36,11 +36,14 @@ namespace TiroirCaisse.src.Views.Clients
         {
             DateTime? temp_dateArrivee = datePickerDateArrivee.SelectedDate;
             DateTime dateArrivee;
+            DateTime? temp_dateNaissance = datePickerDateNaissance.SelectedDate;
+            DateTime dateNaissance;
             Client res = null;
             try
             {
                 dateArrivee = temp_dateArrivee.Value;
-                return new Client(textBoxNom.Text, textBoxPrenom.Text, dateArrivee, textBoxTéléphoneFixe.Text, textBoxTelephonePortable.Text);
+                dateNaissance = temp_dateNaissance.Value;
+                return new Client(textBoxNom.Text, textBoxPrenom.Text, dateArrivee, textBoxTéléphoneFixe.Text, textBoxTelephonePortable.Text, 0, dateNaissance, textBoxAdresse.Text, textBlockCommentaire.Text, textBoxMail.Text);
             }
             catch
             {
@@ -59,6 +62,7 @@ namespace TiroirCaisse.src.Views.Clients
                 if(res ==1)
                 {
                     MessageBox.Show("L'utilisateur a été rajouté");
+                    raz();
                 }
                 else
                 {
@@ -69,6 +73,18 @@ namespace TiroirCaisse.src.Views.Clients
             {
                 MessageBox.Show("Veuillez vérifier que les informations sont correctes (Bon format de date par exemple)");
             }
+        }
+        private void raz()
+        {
+            textBoxNom.Text = "";
+            textBoxPrenom.Text = "";
+            textBoxTelephonePortable.Text = "";
+            textBoxTéléphoneFixe.Text = "";
+            datePickerDateArrivee.Text = "";
+            datePickerDateNaissance.Text = "";
+            textBoxAdresse.Text = "";
+            textBlockCommentaire.Text = "";
+            textBoxMail.Text = "";
         }
 
     }

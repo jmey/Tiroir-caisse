@@ -42,7 +42,7 @@ namespace TiroirCaisse.src.Views.Produits
             produitController = new ProduitController();
 
             InitializeComponent();
-            DataGrid.DataContext = this;
+            dataGrid.DataContext = this;
 
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace TiroirCaisse.src.Views.Produits
             {
                 if (MessageBox.Show("Etes vous sûr de supprimer cet élement ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    Produit selectedProduit = DataGrid.SelectedItem as Produit;
+                    Produit selectedProduit = dataGrid.SelectedItem as Produit;
                     int res = produitController.supprimerProduit(selectedProduit);
                     if (res == 1)
                     {
@@ -91,6 +91,24 @@ namespace TiroirCaisse.src.Views.Produits
                 string csv = produitController.listToCSV(listObject, typeof(Produit));
                 produitController.saveCSVFile(dialog.FileName, csv);
             }
+        }
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGrid.SelectedIndex >= 0)
+            {
+                Produit selectedItem = listProduit[dataGrid.SelectedIndex];
+                if (selectedItem != null)
+                {
+                    ModifierProduitWindow modificationwindow = new ModifierProduitWindow(selectedItem);
+                    modificationwindow.Show();
+                    modificationwindow.Activate();
+                    modificationwindow.Closed += update;
+                }
+            }
+        }
+        public void update(object sender, EventArgs e)
+        {
+            listProduit = produitController.getAllProduits();
         }
     }
 }

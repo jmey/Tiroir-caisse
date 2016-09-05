@@ -10,15 +10,20 @@
 
     <Grid>
         <DockPanel LastChildFill="False" >
-            <DataGrid Name="DataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" ItemsSource="{Binding listClient, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown" MaxHeight="700">
+            <DataGrid Name="dataGrid" DockPanel.Dock="TOP" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" ItemsSource="{Binding listClient, Mode=TwoWay}" IsReadOnly="True" KeyDown="DataGrid_KeyDown" MaxHeight="700">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cID" Binding="{Binding Id}" Header="ID" Width="0.25*" />
                 <DataGridTextColumn x:Name="cName" Binding="{Binding Nom}" Header="Nom" Width="*"  />
                 <DataGridTextColumn x:Name="cPrenom" Binding="{Binding Prenom}" Header="Prenom" Width="*"  />
-                <DataGridTextColumn x:Name="cDateArrivee" Binding="{Binding DateArrivee}" Header="Date d'arrivee" Width="*" />
-                <DataGridTextColumn x:Name="cNumeroFixe" Binding="{Binding NumeroFixe}" Header="Numéro fixe" Width="*" />
+                    <DataGridTextColumn x:Name="cDateArrivee" Binding="{Binding DateArrivee, StringFormat='dd/MM/yyyy'}"  Header="Date d'arrivee" Width="*" />
+                    <DataGridTextColumn x:Name="cDateNaissance" Binding="{Binding DateNaissance, StringFormat='dd/MM/yyyy'}" Header="Date de naissance" Width="*" />
+                    <DataGridTextColumn x:Name="cAdresse" Binding="{Binding Adresse}" Header="Adresse" Width="*" />
+                    <DataGridTextColumn x:Name="cMail" Binding="{Binding Mail}" Header="Mail" Width="*" />
+                    <DataGridTextColumn x:Name="cNumeroFixe" Binding="{Binding NumeroFixe}" Header="Numéro fixe" Width="*" />
                 <DataGridTextColumn x:Name="cNumeroPortable" Binding="{Binding NumeroPortable}" Header="Numéro portable" Width="*" />
-            </DataGrid.Columns>
+                    <DataGridTextColumn x:Name="cFidelite" Binding="{Binding Fidelite}" Header="Fidelite" Width="*" />
+                    <DataGridTextColumn x:Name="cCommentaire" Binding="{Binding Commentaire}" Header="Commentaire" Width="*" />
+                </DataGrid.Columns>
         </DataGrid>
             <Button Content="Exporter CSV" FontSize="20" DockPanel.Dock="Bottom" Name="ExportCSV_Button" Click="ExportCSV_Button_Click" />
         </DockPanel>

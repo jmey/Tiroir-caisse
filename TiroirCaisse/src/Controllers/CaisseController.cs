@@ -30,6 +30,20 @@ namespace TiroirCaisse.src.Controllers
             }
             return res;
         }
+
+        public float getMontantRetireBetweenDate(string type, DateTime _dateDebut, DateTime _dateFin)
+        {
+            float res = 0;
+            List <MontantRetireCaisse> listMontantRetire = transition.getAllMontantsCaisseBy("type='" + type + "'");
+            foreach(MontantRetireCaisse montant in listMontantRetire)
+            {
+                if (_dateDebut.CompareTo(montant.Date) <= 0 && _dateFin.CompareTo(montant.Date) >= 0)
+                {
+                    res += montant.Montant;
+                }
+            }
+            return res;
+        }
         public float getMontantPrit(string type)
         {
             return 0;
@@ -42,9 +56,19 @@ namespace TiroirCaisse.src.Controllers
             return resultat;
         }
 
+        public int supprimerMontantRetirerCaisse(MontantRetireCaisse selectedMontant)
+        {
+            return transition.deleteMontantCaisseBy("id=" + selectedMontant.Id);
+        }
         /*public float getMontantTotal(string type)
         {
             return getMontantRecu(type) - getMontantPrit(type);
         }*/
+
+        public List<MontantRetireCaisse> getAllMontantRetire()
+        {
+            List<MontantRetireCaisse> res = transition.getAllMontantsCaisseBy("");
+            return res;
+        }
     }
 }
